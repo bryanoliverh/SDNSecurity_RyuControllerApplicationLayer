@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Network Status</h2>
+
+<form action="/status/enable/" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Enable All" />
+</form>
+
+<form action="/status/disable/" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Disable All" />
+</form>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>SW ID</th>
+            <th>Status</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for s in status %}
+       
+        <tr>
+            <td>{{ s.switch_id }}</td>
+            <td>{{ s.status }}</td>
+            <td>
+                <form action="/status/enable/{{ s.switch_id }}/" method="POST">
+                    <input type="submit" name="Enable" value="Enable" />
+                </form>
+                <form action="/status/disable/{{ s.switch_id }}/" method="POST">
+                    <input type="submit" name="Disable" value="Disable" />
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

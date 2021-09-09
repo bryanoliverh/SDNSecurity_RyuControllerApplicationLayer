@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Index Page</h2>
+
+<h3><a href="{% url 'status' %}">Status</a></h3>
+<h3><a href="{% url 'statusdpid' %}">ALL Switch DPID</a></h3>
+<h3><a href="{% url 'rules' %}">Detailed Rules</a></h3>
+<h3><a href="{% url 'ip_rules' %}">IP Rules</a></h3>
+<h3><a href="{% url 'get_switch' %}">See All Switch</a></h3>
+<h3><a href="{% url 'addflow' %}">Add Flow</a></h3>
+
+{% endblock %}

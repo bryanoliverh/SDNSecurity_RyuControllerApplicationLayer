@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Switch DPID</h2>
+
+
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>DPID</th>
+         
+        </tr>
+    </thead>
+    <tbody>
+        {% for s in statusdpid %}
+        <tr>
+            <td>{{ s }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

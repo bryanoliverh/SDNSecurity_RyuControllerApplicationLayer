@@ -1,0 +1,92 @@
+{% extends "base.html" %} {% block content %}
+<h2>IP Rules</h2>
+
+<hr>
+
+<h3>Add Rule</h3>
+
+<form action="{% url 'ip_rules_add' %}" method="POST">
+    {% csrf_token %}
+    <table border="1">
+        {{ form }}
+    </table>
+    <input type="submit" name="Submit" value="Add">
+</form>
+
+<hr>
+
+<!-- <form action="/rules/delete/" method="POST">
+    {% csrf_token %}
+    <button type="submit">Delete All Rules</button>
+</form>
+
+<form action="/rules/allow_all/" method="POST">
+    {% csrf_token %}
+    <button type="submit">Set All Allowed</button>
+</form>
+
+<form action="/rules/deny_all/" method="POST">
+    {% csrf_token %}
+    <button type="submit">Set All Denied</button>
+</form> -->
+
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>operations</th>
+            <th>sw_id</th>
+            <th>rule_id</th>
+            <th>priority</th>
+            <th>dl_type</th>
+            <th>nw_src</th>
+            <th>nw_dst</th>
+            <th>ipv6_src</th>
+            <th>ipv6_dst</th>
+            <th>nw_proto</th>
+            <th>tp_src</th>
+            <th>tp_dst</th>
+            <th>actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for rule in rules %}
+        <tr>
+            <td>
+                <form action="{% url 'ip_rules_delete' rule.rule_id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit">Delete Rule</button>
+                </form>
+            </td>
+            <td>{{ rule.switch_id }}</td>
+            <td>{{ rule.rule_id }}</td>
+            <td>{{ rule.priority }}</td>
+            <td>{{ rule.dl_type }}</td>
+            <td>{{ rule.nw_src }}</td>
+            <td>{{ rule.nw_dst }}</td>
+            <td>{{ rule.ipv6_src }}</td>
+            <td>{{ rule.ipv6_dst }}</td>
+            <td>{{ rule.nw_proto }}</td>
+            <td>{{ rule.tp_src }}</td>
+            <td>{{ rule.tp_dst }}</td>
+            <td>{{ rule.actions }}</td>
+<!--             
+                <td>{{ switch.switch_id|default_if_none:"-" }}</td>
+                <td>{{ rule.rule_id|default_if_none:"-" }}</td>
+                <td>{{ rule.priority|default_if_none:"-" }}</td>
+                <td>{{ rule.dl_type|default_if_none:"-" }}</td>
+                <td>{{ rule.nw_src|default_if_none:"-" }}</td>
+                <td>{{ rule.nw_dst|default_if_none:"-" }}</td>
+                <td>{{ rule.ipv6_src|default_if_none:"-" }}</td>
+                <td>{{ rule.ipv6_dst|default_if_none:"-" }}</td>
+                <td>{{ rule.nw_proto|default_if_none:"-" }}</td>
+                <td>{{ rule.tp_src|default_if_none:"-" }}</td>
+                <td>{{ rule.tp_dst|default_if_none:"-" }}</td>
+                <td>{{ rule.actions|default_if_none:"-" }}</td>
+            -->
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

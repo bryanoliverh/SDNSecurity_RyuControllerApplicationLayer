@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Switch Get DATA</h2>
+
+
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>DPID</th> 
+            <th>Manifacturer</th>
+            <th>Hardware Description</th>
+            <th>Switch Description</th>
+            <th>Switch Serial Number</th>
+            <th>DP Description</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <!-- {% for a in rules %} -->
+        <tr>
+            <td>{{ br }}</td>
+            <td>{{ rules.1.mfr_desc }}</td>
+            <td>{{ rules.1.hw_desc }}</td>
+            <td>{{ rules.1.sw_desc }}</td>
+            <td>{{ rules.1.serial_num }}</td>
+            <td>{{ rules.1.dp_desc }}</td>
+        </tr>
+        <!-- {% endfor %} -->
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "base.html" %} {% block content %}
+<h2>IP Rules</h2>
+
+<hr>
+
+<h3>Add Rule</h3>
+
+<form action="{% url 'addflow' %}" method="POST">
+    {% csrf_token %}
+    <table border="1">
+        {{ form }}
+    </table>
+    <input type="submit" name="Submit" value="Add">
+</form>
+
+<hr>
+<!--
+<form action="/rules/delete/" method="POST">
+    {% csrf_token %}
+    <button type="submit">Delete All Rules</button>
+</form>
+
+<form action="/rules/allow_all/" method="POST">
+    {% csrf_token %}
+    <button type="submit">Set All Allowed</button>
+</form>
+
+<form action="/rules/deny_all/" method="POST">
+    {% csrf_token %}
+    <button type="submit">Set All Denied</button>
+</form>
+-->
+
+<table border="1">
+    <thead>
+        <tr>
+            <th> dpid</th>
+            <th> cookie</th>
+            <th>cookie_mask</th>
+            <th>table_id</th>
+            <th>idle_timeout </th>
+            <th>hard_timeout</th>
+            <th>priority</th>
+            <th>flags</th>
+            <th>match</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for rule in rules %}
+        <tr>
+            <!-- <td>
+                <form action="{% url 'addflow'%}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit">Delete Rule</button>
+                </form>
+            </td> -->
+            <td>{{ rule.dpid }}</td>
+            <td>{{ rule.cookie }}</td>
+            <td>{{ rule.cookie_mask }}</td>
+            <td>{{ rule.table_id }}</td>
+            <td>{{ rule.idle_timeout }}</td>
+            <td>{{ rule.hard_timeout }}</td>
+            <td>{{ rule.priority }}</td>
+            <td>{{ rule.flags }}</td>
+            <td>{{ rule.match }}</td>
+           
+<!--             
+                <td>{{ switch.switch_id|default_if_none:"-" }}</td>
+                <td>{{ rule.rule_id|default_if_none:"-" }}</td>
+                <td>{{ rule.priority|default_if_none:"-" }}</td>
+                <td>{{ rule.dl_type|default_if_none:"-" }}</td>
+                <td>{{ rule.nw_src|default_if_none:"-" }}</td>
+                <td>{{ rule.nw_dst|default_if_none:"-" }}</td>
+                <td>{{ rule.ipv6_src|default_if_none:"-" }}</td>
+                <td>{{ rule.ipv6_dst|default_if_none:"-" }}</td>
+                <td>{{ rule.nw_proto|default_if_none:"-" }}</td>
+                <td>{{ rule.tp_src|default_if_none:"-" }}</td>
+                <td>{{ rule.tp_dst|default_if_none:"-" }}</td>
+                <td>{{ rule.actions|default_if_none:"-" }}</td>
+            -->
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
