@@ -112,6 +112,18 @@ def get_switch():
     # return _get('/stats/desc/1')
     return _get('/stats/desc/1')
 
+def get_switch2():
+    # return _get('/stats/desc/1')
+    return _get('/stats/desc/2')
+
+def get_switch3():
+    # return _get('/stats/desc/1')
+    return _get('/stats/desc/3')
+
+def get_switch4():
+    # return _get('/stats/desc/1')
+    return _get('/stats/desc/4')
+
 def addflow(sw='all', **kwargs):
     """
     POST /firewall/rules/{switch-id}
@@ -119,9 +131,8 @@ def addflow(sw='all', **kwargs):
     """
     payload = kwargs
     return _post('/stats/flowentry/add'.format(sw), json=payload)
-def getflow(sw='all'):
-    """
-    GET /firewall/rules/{switch-id}
-    GET /firewall/rules/{switch-id}/{vlan-id}
-    """
-    return _get('/stats/flow/{}'.format(sw))
+    
+def allflowstats():
+
+    return _get('/stats/flow/1')
+

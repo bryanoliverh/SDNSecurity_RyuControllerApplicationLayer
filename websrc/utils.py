@@ -78,6 +78,15 @@ def flatten_sw(rules):
             rtn.append(a)
     return rtn
 
+def flatten_flows1(rules):
+    """
+    convert rules from api to a flat list
+    """
+    rtn = []
+    # for switch in rules:
+    for a in rules['1']:
+            rtn.append(a)
+    return rtn
 # def flatten_sw():
 #     """
 #     convert rules from api to a flat list

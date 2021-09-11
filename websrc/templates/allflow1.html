@@ -34,15 +34,21 @@
 <table border="1">
     <thead>
         <tr>
-            <th> dpid</th>
-            <th> cookie</th>
-            <th>cookie_mask</th>
-            <th>table_id</th>
-            <th>idle_timeout </th>
-            <th>hard_timeout</th>
-            <th>priority</th>
-            <th>flags</th>
-            <th>match</th>
+            <th> Lenght</th>
+            <th> Table Id</th>
+            <th>Alive Time Flow (s)</th>
+            <th>Alive Time Flow (ns)</th>
+            <th>Priority</th>
+            <th>Idle Timeout </th>
+            <th>Hard Timeout</th>
+            <th>Flags</th>
+            <th>Cookie</th>
+            <th>Packets Count</th>
+            <th>Byte Count</th>
+            <th>In Port</th>
+            <th>Ethernet Source Adress</th>
+            <th>Ethernet Destination Address</th>
+            <th>Port Output</th>
         </tr>
     </thead>
     <tbody>
@@ -54,7 +60,38 @@
                     <button type="submit">Delete Rule</button>
                 </form>
             </td> -->
-            <td>{{ rule.dpid }}</td>
+
+            <td>{{ rule.length }}</td>
+            <td>{{ rule.table_id }}</td>
+            <td>{{ rule.duration_sec }}</td>
+            <td>{{ rule.duration_nsec }}</td>
+            <td>{{ rule.priority }}</td>
+            <td>{{ rule.idle_timeout }}</td>
+            <td>{{ rule.hard_timeout }}</td>
+            <td>{{ rule.flags }}</td>
+            <td>{{ rule.cookie }}</td>
+            <td>{{ rule.packet_count }}</td>
+            <td>{{ rule.byte_count }}</td>
+            <td>{{ rule.match.in_port }}</td>
+            <td>{{ rule.match.dl_src }}</td>
+            <td>{{ rule.match.dl_dst }}</td>
+            <td>{{ rule.actions }}</td>
+
+
+            <!-- <td>{{ rules.1.lenght }}</td>
+            <td>{{ rules.1.table_id }}</td>
+            <td>{{ rules.1.duration_sec }}</td>
+            <td>{{ rules.1.duration_nsec }}</td>
+            <td>{{ rules.1.priority }}</td>
+            <td>{{ rules.1.idle_timeout }}</td>
+            <td>{{ rules.1.hard_timeout }}</td>
+            <td>{{ rules.1.flags }}</td>
+            <td>{{ rules.1.cookie }}</td>
+            <td>{{ rules.1.packet_count }}</td>
+            <td>{{ rules.1.byte_count }}</td>
+            <td>{{ rules.1.match.in_port }}</td>
+            <td>{{ rules.1.actions.OUTPUT }}</td> -->
+            <!-- <td>{{ rule.dpid }}</td>
             <td>{{ rule.cookie }}</td>
             <td>{{ rule.cookie_mask }}</td>
             <td>{{ rule.table_id }}</td>
@@ -62,7 +99,7 @@
             <td>{{ rule.hard_timeout }}</td>
             <td>{{ rule.priority }}</td>
             <td>{{ rule.flags }}</td>
-            <td>{{ rule.match }}</td>
+            <td>{{ rule.match }}</td> -->
            
 <!--             
                 <td>{{ switch.switch_id|default_if_none:"-" }}</td>

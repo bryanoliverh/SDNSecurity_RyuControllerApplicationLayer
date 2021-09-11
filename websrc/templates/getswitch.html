@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Switch Get DATA</h2>
+<h2>Switch Hardware Description</h2>
 
 
 
@@ -25,6 +25,30 @@
             <td>{{ rules.1.sw_desc }}</td>
             <td>{{ rules.1.serial_num }}</td>
             <td>{{ rules.1.dp_desc }}</td>
+        </tr>
+        <tr>
+        <td>{{ br2 }}</td>
+        <td>{{ rules2.2.mfr_desc }}</td>
+        <td>{{ rules2.2.hw_desc }}</td>
+        <td>{{ rules2.2.sw_desc }}</td>
+        <td>{{ rules2.2.serial_num }}</td>
+        <td>{{ rules2.2.dp_desc }}</td>
+        </tr>
+        <tr>
+        <td>{{ br3 }}</td>
+        <td>{{ rules3.3.mfr_desc }}</td>
+        <td>{{ rules3.3.hw_desc }}</td>
+        <td>{{ rules3.3.sw_desc }}</td>
+        <td>{{ rules3.3.serial_num }}</td>
+        <td>{{ rules3.3.dp_desc }}</td>
+        </tr>
+        <tr>
+        <td>{{ br4 }}</td>
+        <td>{{ rules4.4.mfr_desc }}</td>
+        <td>{{ rules4.4.hw_desc }}</td>
+        <td>{{ rules4.4.sw_desc }}</td>
+        <td>{{ rules4.4.serial_num }}</td>
+        <td>{{ rules4.4.dp_desc }}</td>
         </tr>
         <!-- {% endfor %} -->
     </tbody>

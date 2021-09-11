@@ -50,9 +50,11 @@ urlpatterns = [
 
     #get switch
     url(r'^get-switch/$', views.get_switch, name='get_switch'),
-
+    
     #add flow
     url(r'^addflow/$', views.addflow, name='addflow'),
 
     url(r'^statusdpid/$', views.statusdpid, name='statusdpid'),
+
+    url(r'^allflowstats/$', views.getflow, name='allflowstats'),
 ]   

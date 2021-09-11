@@ -1,12 +1,12 @@
 
 
 ssh -X mininet@192.168.1.112
-ssh -X ryu@192.168.1.102
+ssh -X ryu@192.168.1.103
  ssh -X wifi@192.168.168.6       
 
 
 
-sudo mn --controller=remote,ip=192.168.1.104 --topo=linear,3 --switch ovsk,protocols=OpenFlow13
+sudo mn --controller=remote,ip=192.168.1.103 --topo=linear,4 --switch ovsk,protocols=OpenFlow13
 
 
 ryu-manager simple_switch_13.py  rest_firewall.py ofctl_rest.py        

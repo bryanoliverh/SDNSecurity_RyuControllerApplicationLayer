@@ -190,12 +190,18 @@ def ip_rules_delete(request, rule_id):
 
 def get_switch(request):
     rules = api.get_switch()
+    rules2 = api.get_switch2()
+    rules3 = api.get_switch3()
+    rules4 = api.get_switch4()
     statusdpid = api.get_fw_statusdpid()
     print(statusdpid) 
     br = "1"
+    br2 ="2"
+    br3 ="3"
+    br4 ="4"
     print(rules) 
     # rules = utils.flatten_sw(api.get_switch())
-    return render(request, 'getswitch.html', {'rules': rules, 'statusdpid' :statusdpid, 'br':br})
+    return render(request, 'getswitch.html', {'rules': rules, 'statusdpid' :statusdpid, 'br':br, 'rules2' :rules2, 'br2':br2, 'rules3' :rules3, 'br3':br3, 'rules4' :rules4, 'br4':br4})
 
 # def get_switch(request, dpid='all'):
 #     #rules = api.get_switch()
@@ -233,6 +239,7 @@ def getflow(request):
     (maybe) show rules in a table
     provide form to add IP based rule
     """
-    rules = api.getflow()
-    form = flowForm()
-    return render(request, 'addflow.html', {'rules': rules, 'form': form})
+    # rules = api.allflowstats()
+    #print(rules) 
+    rules = utils.flatten_flows1(api.allflowstats())
+    return render(request, 'allflow1.html', {'rules': rules})
