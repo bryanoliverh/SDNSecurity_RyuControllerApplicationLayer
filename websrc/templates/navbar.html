@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+
+<style type="text/css">
+    .bs-example{
+        margin: 0px;
+
+    }
+.navbar-brand{
+  font-size: 20px;
+  font-family: sans-serif;
+
+}
+
+
+</style>
+</head>
+<body>
+
+
+
+<div class="bs-example">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+        <a href="/" class="navbar-brand">FTUI Library</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav">
+                <!-- <a href="/" class="nav-item nav-link active">Home</a> -->
+                <a href="/dpid" class="nav-item nav-link">Switch DPID List</a>
+                <a href="/status" class="nav-item nav-link">Switch Status</a>
+                <a href="/getswitch" class="nav-item nav-link">See All Switch</a>
+                <a href="/detailedrules" class="nav-item nav-link">Detailed Rules</a>
+                <a href="/iprules" class="nav-item nav-link">IP Rules</a>
+                <a href="/allflowstats" class="nav-item nav-link">See All Flows</a>
+                <!-- <a href="/addflow" class="nav-item nav-link">Add Flow</a> -->
+
+            </div>
+
+            <div class="navbar-nav">
+                <a href="/aboutus" class="nav-item nav-link">About Us</a>
+                <!-- <a href="contactus" class="nav-item nav-link">Contact Us</a> -->
+            </div>
+
+
+
+
+        </div>
+    </nav>
+</div>
+
+
+</body>
+</html>

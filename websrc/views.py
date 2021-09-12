@@ -241,5 +241,17 @@ def getflow(request):
     """
     # rules = api.allflowstats()
     #print(rules) 
+    # increment = int(request.GET['append_increment'])
+    # increment_to = increment + 10
     rules = utils.flatten_flows1(api.allflowstats())
+    #rules = utils.flatten_flows1(api.allflowstats())[increment:increment_to]
     return render(request, 'allflow1.html', {'rules': rules})
+
+# def get_more_tables(request):
+#     increment = int(request.GET['append_increment'])
+#     increment_to = increment + 10
+#     order = Order.objects.filter(owner=request.user).order_by('-id')[increment:increment_to]
+#     return render(request, 'get_more_tables.html', {'order': order})
+
+def aboutus_view(request):
+    return render(request,'aboutus.html')

@@ -6,7 +6,7 @@ ssh -X ryu@192.168.1.103
 
 
 
-sudo mn --controller=remote,ip=192.168.1.103 --topo=linear,4 --switch ovsk,protocols=OpenFlow13
+sudo mn --controller=remote,ip=192.168.1.106 --topo=linear,4 --switch ovsk,protocols=OpenFlow13
 
 
 ryu-manager simple_switch_13.py  rest_firewall.py ofctl_rest.py        
