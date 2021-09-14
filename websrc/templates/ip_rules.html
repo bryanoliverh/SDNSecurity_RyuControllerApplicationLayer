@@ -1,71 +1,115 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<html lang="en" dir="ltr"></html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Data Center Network Manager</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <title>FTUI Library Contacts</title>
-    <style media="screen">
-    .jumbotron{
-      margin-top: 0px;
-      margin-bottom: 0px;
+   
+<style media="screen">
+    table.TableColor {
+    border: 0.5px solid #60f4ff;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
     }
-    .jumbotron h1{
-      text-align: center;
+    table.TableColor td, table.TableColor th {
+    border: 1px solid #000000;
+    padding: 3px 2px;
     }
-    .alert{
-      margin: 0px;
+    table.TableColor tbody td {
+    font-size: 13px;
+    }
+    table.TableColor tr:nth-child(even) {
+    background: #bbeaff;
+    }
+    table.TableColor thead {
+    background: #2600ff;
+    }
+    table.TableColor thead th {
+    font-size: 19px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    border-left: 2px solid #2600ff;
+    }
+    table.TableColor thead th:first-child {
+    border-left: none;
+    }
+    
+    table.TableColor tfoot {
+    font-size: 13px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background: #2600ff;
+    }
+    table.TableColor tfoot td {
+    font-size: 13px;
+    }
+    table.TableColor tfoot .links {
+    text-align: right;
+    }
+    table.TableColor tfoot .links a{
+    display: inline-block;
+    background: #FFFFFF;
+    color: #2600ff;
+    padding: 2px 8px;
+    border-radius: 5px;
     }
     </style>
+</head>
 
-    <title></title>
-  </head>
-  <body>
+<br>
+<body>
 
-    {% include "navbar.html" %}
+<span id="pab_message" style="color:inherit; padding-left: 10px;"></span>
+{% include "navbar.html" %}
+<h3 class="p-3 mb-2 bg-primary text-white" style = 'font-size: 50px;text-align:center;'>Full IP Rules</h3>
 
+<h2>Complete IP Rules Specification</h2>
+<br>
 
-
-{% block content %}
-<h2>IP Rules</h2>
+    {% block content %}
 
 <hr>
 
-<h3>Add Rule</h3>
+<h3>Add Complete Rule</h3>
 
-<form action="{% url 'ip_rules_add' %}" method="POST">
+<form action="{% url 'rules_add' %}" method="POST">
     {% csrf_token %}
     <table border="1">
         {{ form }}
     </table>
-    <input type="submit" name="Submit" value="Add">
+    <input type="submit" name="Submit">
 </form>
 
 <hr>
 
-<!-- <form action="/rules/delete/" method="POST">
+<form action="{% url 'rules_delete_all' %}" method="POST">
     {% csrf_token %}
     <button type="submit">Delete All Rules</button>
 </form>
 
-<form action="/rules/allow_all/" method="POST">
+<form action="{% url 'rules_allow_all' %}" method="POST">
     {% csrf_token %}
     <button type="submit">Set All Allowed</button>
 </form>
 
-<form action="/rules/deny_all/" method="POST">
+<form action="{% url 'rules_deny_all' %}" method="POST">
     {% csrf_token %}
     <button type="submit">Set All Denied</button>
-</form> -->
+</form>
 
+<h3>IP Rules Condition</h3>
 
-<table border="1">
+<table border="1" class="TableColor">
     <thead>
         <tr>
             <th>operations</th>
@@ -123,6 +167,9 @@
     </tbody>
 </table>
 
+
+<br>    <br>    <br>    <br>    <br>    <br>    <br>    <br>
 {% endblock %}
+
 
 {% include "footer.html" %}

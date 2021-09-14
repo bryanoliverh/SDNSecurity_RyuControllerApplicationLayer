@@ -1,67 +1,88 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html lang="en" dir="ltr"></html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>FTUI Library</title>
+<title>Data Center Network Manager</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-
-
-<style type="text/css">
-    .bs-example{
-        margin: 0px;
-
+<style media="screen">
+    table.TableColor {
+    border: 0.5px solid #60f4ff;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
     }
-       .signup-form .btn {
-            font-size: 16px;
-            font-weight: bold;
-    	background: #0026ff;
-    		border: none;
-    		margin-top: 20px;
-    		min-width: 140px;
-        }
-    	.signup-form .btn:hover, .signup-form .btn:focus {
-    		background: #41cba9;
-            outline: none !important;
-    	}
+    table.TableColor td, table.TableColor th {
+    border: 1px solid #000000;
+    padding: 3px 2px;
+    }
+    table.TableColor tbody td {
+    font-size: 13px;
+    }
+    table.TableColor tr:nth-child(even) {
+    background: #bbeaff;
+    }
+    table.TableColor thead {
+    background: #2600ff;
+    }
+    table.TableColor thead th {
+    font-size: 19px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    border-left: 2px solid #2600ff;
+    }
+    table.TableColor thead th:first-child {
+    border-left: none;
+    }
     
-.navbar-brand{
-  font-size: 20px;
-  font-family: sans-serif;
-
-}
-.col-lg-6{
-  padding-left: 20%;
-}
-.jumbotron{
-  margin-bottom: 0px;
-  
-}
-
-</style>
+    table.TableColor tfoot {
+    font-size: 13px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background: #2600ff;
+    }
+    table.TableColor tfoot td {
+    font-size: 13px;
+    }
+    table.TableColor tfoot .links {
+    text-align: right;
+    }
+    table.TableColor tfoot .links a{
+    display: inline-block;
+    background: #FFFFFF;
+    color: #2600ff;
+    padding: 2px 8px;
+    border-radius: 5px;
+    }
+    </style>
 </head>
+
+<br>
 <body>
 
-
+<span id="pab_message" style="color:inherit; padding-left: 10px;"></span>
 {% include "navbar.html" %}
-{% block content %}
+<h3 class="p-3 mb-2 bg-primary text-white" style = 'font-size: 50px;text-align:center;'>Available DPID</h3>
+
 <h2>Switch DPID</h2>
+<br>
 
 
-
-<table border="1">
+<table border="1" class="TableColor">
     <thead>
         <tr>
             <th>DPID</th>
-         
         </tr>
     </thead>
+    
     <tbody>
         {% for s in statusdpid %}
         <tr>
@@ -70,6 +91,7 @@
         {% endfor %}
     </tbody>
 </table>
-{% endblock %}
 
+
+<br>    <br>    <br>    <br>    <br>    <br>    <br>    <br>
 {% include "footer.html" %}
