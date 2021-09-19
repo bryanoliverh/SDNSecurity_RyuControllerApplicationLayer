@@ -6,10 +6,12 @@ ssh -X ryu@192.168.1.103
 
 
 
-sudo mn --controller=remote,ip=192.168.1.113 --topo=linear,4 --switch ovsk,protocols=OpenFlow13
+sudo mn --controller=remote,ip=192.168.1.108 --topo=linear,4 --switch ovsk,protocols=OpenFlow13
 
 cd app
-ryu-manager simple_switch_13.py  rest_firewall.py ofctl_rest.py        
+ryu-manager simple_switch_13.py  rest_firewall.py ofctl_rest.py      
+
+ryu-manager controller.py  rest_firewall.py ofctl_rest.py     
 
 in folder applayer ryu
 ryu-manager simple_switch_13.py rest_firewall.py
@@ -28,8 +30,15 @@ python .\manage.py makemigrations
 python .\manage.py migrate
 python .\manage.py runserver
 
+scp -r bryanfinal/. mininet@192.168.1.116:/home/mininet/bryanfinal
 
+unsupported version:
+sudo ovs-vsctl set bridge s1 protocols=OpenFlow13
+sudo ovs-vsctl set bridge s2 protocols=OpenFlow13
+sudo ovs-vsctl set bridge s3 protocols=OpenFlow13
+sudo ovs-vsctl set bridge s4 protocols=OpenFlow13
 
+s1 = net.addSwitch('s3', cls=OVSSwitch, mac='00:00:00:00:00:06', protocols='OpenFlow13')
 # =============================
 #          REST API
 # =============================

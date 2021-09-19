@@ -18,6 +18,7 @@ def index(request):
     return render(request, 'index.html', {})
 
 
+
 #  status and settings
 
 def status(request):
@@ -32,14 +33,15 @@ def statusdpid(request):
     show status of all SWs
     """
     statusdpid = api.get_fw_statusdpid()
-    return render(request, 'statusdpid.html', {'statusdpid': statusdpid})
+    return render(request, 'alldpidlist.html', {'statusdpid': statusdpid})
 
 def statusdpid2(request):
     """
     show status of all SWs
     """
     statusdpid = api.get_fw_statusdpid()
-    return render(request, 'status.html', {'statusdpid': statusdpid})
+    sorteddpid= statusdpid.order_by('dpid') 
+    return render(request, 'status.html', {'sorteddpid': sorteddpid})
 
 def status_enable(request, sw='all'):
     """
