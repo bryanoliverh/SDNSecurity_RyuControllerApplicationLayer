@@ -12,95 +12,33 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
 	<!-- <link rel="stylesheet" href="../../websrc/templates/css/style.css" type="text/css"/> -->
 
-  <style>
-    .dropbtn {
-      background-color: #353535;
-      color: white;
-      padding: 16px;
-      font-size: 16px;
-      border: none;
-      cursor: pointer;
-    }
-    
-    .dropbtn:hover, .dropbtn:focus {
-      background-color: #414141;
-    }
-    
-    .dropdown {
-      float: right;
-      position: relative;
-      display: inline-block;
-    }
-    
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #f1f1f1;
-      min-width: 160px;
-      overflow: auto;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      right: 0;
-      z-index: 1;
-    }
-    
-    .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-    
-    .dropdown a:hover {background-color: #ddd;}
-    
-    .show {display: block;}
-    </style>
 	</head>
-
 	<body>
 		{% include "navbar.html" %}
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-          <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Switch list</button>
-            <div id="myDropdown" class="dropdown-content">
-              <a href="#home">s1</a>
-              <a href="#about">s2</a>
-              <a href="#contact">s3</a>
-            </div>
-          </div>
-					<h2 class="heading-section">All Flows S1</h2>
-         
+					<h2 class="heading-section">Port Desc in S1</h2>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-          <!-- <form action="stats/flowentry/clear/" method="POST">
-            {% csrf_token %}
-            <input type="submit" value="Delete All Flow Entry" />
-        </form> -->
-        
-        
 					<div class="table-wrap">
 						<table class="table table-bordered table-dark table-hover" id="myTable2">
 						  <thead>
 						    <tr onclick="sortTable(0)"> 
-                                <th> Lenght</th>
-                                <th> Table Id</th>
-                                <th>Alive Time Flow (s)</th>
-                                <th>Alive Time Flow (ns)</th>
-                                <th>Priority</th>
-                                <th>Packets Count</th>
-                                <th>Byte Count</th>
-                                <th>In Port</th>
-                                <th>Ethernet Source Adress</th>
-                                <th>Ethernet Destination Address</th>
-                                <th>Port Output</th>
-                                <th>Idle Timeout </th>
-                                <th>Hard Timeout</th>
-                                <th>Flags</th>
-                                <th>Cookie</th>
+                                <th> Port Number</th>
+                                <th> Port Name</th>
+                                <th>Ethernet HW Address</th>
+                                <th>Current Features</th>
+                                <th>Advertised Features</th>
+                                <th>Supported Features</th>
+                                <th>Advertised Features by Peer</th>
+                                <th>Current Bitrate Speed</th>
+                                
+                                
+                             
                                
 						    </tr>
 						  </thead>
@@ -113,22 +51,15 @@
                     <button type="submit">Delete Rule</button>
                 </form>
             </td> -->
-
-            <td>{{ rule.length }}</td>
-            <td>{{ rule.table_id }}</td>
-            <td>{{ rule.duration_sec }}</td>
-            <td>{{ rule.duration_nsec }}</td>
-            <td>{{ rule.priority }}</td>
-            <td>{{ rule.packet_count }}</td>
-            <td>{{ rule.byte_count }}</td>
-            <td>{{ rule.match.in_port }}</td>
-            <td>{{ rule.match.dl_src }}</td>
-            <td>{{ rule.match.dl_dst }}</td>
-            <td>{{ rule.actions }}</td>
-            <td>{{ rule.idle_timeout }}</td>
-            <td>{{ rule.hard_timeout }}</td>
-            <td>{{ rule.flags }}</td>
-            <td>{{ rule.cookie }}</td>
+            <td>{{ rule.port_no}}</td>
+            <td>{{ rule.name }}</td>
+            <td>{{ rule.hw_addr }}</td>
+            <td>{{ rule.curr }}</td>
+            <td>{{ rule.advertised }}</td>
+            <td>{{ rule.supported }}</td>
+            <td>{{ rule.peer }}</td>
+            <td>{{ rule.curr_speed}}</td>
+         
            
 
 
@@ -247,25 +178,3 @@
       }
     }
     </script>
-
-<script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-</script>

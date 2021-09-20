@@ -195,15 +195,19 @@ def get_switch(request):
     rules2 = api.get_switch2()
     rules3 = api.get_switch3()
     rules4 = api.get_switch4()
+    rules5 = api.get_switch5()
+    rules6 = api.get_switch6()
     statusdpid = api.get_fw_statusdpid()
     print(statusdpid) 
     br = "1"
     br2 ="2"
     br3 ="3"
     br4 ="4"
+    br5 ="5"
+    br6 ="6"
     print(rules) 
     # rules = utils.flatten_sw(api.get_switch())
-    return render(request, 'getswitch.html', {'rules': rules, 'statusdpid' :statusdpid, 'br':br, 'rules2' :rules2, 'br2':br2, 'rules3' :rules3, 'br3':br3, 'rules4' :rules4, 'br4':br4})
+    return render(request, 'getswitch.html', {'rules': rules, 'statusdpid' :statusdpid, 'br':br, 'rules2' :rules2, 'br2':br2, 'rules3' :rules3, 'br3':br3, 'rules4' :rules4, 'br4':br4, 'rules5' :rules5, 'br5':br5, 'rules6' :rules6, 'br6':br6})
 
 # def get_switch(request, dpid='all'):
 #     #rules = api.get_switch()
@@ -236,6 +240,14 @@ def addflow(request):
     else:
         return HttpResponseRedirect(reverse('addflow'))
 
+def flowentryclear(request, sw='all'):
+    """
+    disable fw on SWs
+    """
+    api.clearflowentry(sw=sw)
+    return render(request, 'allflows1.html')
+
+
 def getflow(request):
     """
     (maybe) show rules in a table
@@ -245,9 +257,52 @@ def getflow(request):
     #print(rules) 
     # increment = int(request.GET['append_increment'])
     # increment_to = increment + 10
-    rules = utils.flatten_flows1(api.allflowstats())
+    rules = utils.flatten_flows1(api.allflowstats1())
     #rules = utils.flatten_flows1(api.allflowstats())[increment:increment_to]
     return render(request, 'allflow1.html', {'rules': rules})
+
+def getaggregate1(request):
+    rules =  api.allaggregatestats()
+    # rules2 = utils.flatten_flows2(api.allaggregatestats2())
+    # rules3 = utils.flatten_flows3(api.allaggregatestats3())
+    # rules4 = utils.flatten_flows4(api.allaggregatestats4())
+    # rules5 = utils.flatten_flows5(api.allaggregatestats5())
+    # rules6 = utils.flatten_flows6(api.allaggregatestats6())
+    # statusdpid = api.get_fw_statusdpid()
+    # print(statusdpid) 
+    br = "1"
+    # br2 ="2"
+    # br3 ="3"
+    # br4 ="4"
+    # br5 ="5"
+    # br6 ="6"
+    print(rules) 
+    # rules = utils.flatten_sw(api.get_switch())
+    return render(request, 'allaggregate1.html', {'rules': rules, 'br' : br})
+
+
+def getportdesc1(request):
+    """
+    (maybe) show rules in a table
+    provide form to add IP based rule
+    """
+    # rules = api.allflowstats()
+    #print(rules) 
+    # increment = int(request.GET['append_increment'])
+    # increment_to = increment + 10
+    rules = utils.flatten_flows1(api.getportdesc1())
+    #rules = utils.flatten_flows1(api.allflowstats())[increment:increment_to]
+    return render(request, 'getportdesc1.html', {'rules': rules})
+
+def getportstats1(request):
+    # rules = api.allflowstats()
+    #print(rules) 
+    # increment = int(request.GET['append_increment'])
+    # increment_to = increment + 10
+    rules = utils.flatten_flows1(api.getportstats1())
+    #rules = utils.flatten_flows1(api.allflowstats())[increment:increment_to]
+    return render(request, 'getportstats1.html', {'rules': rules})
+
 
 # def get_more_tables(request):
 #     increment = int(request.GET['append_increment'])

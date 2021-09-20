@@ -19,79 +19,33 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Switch DPID</h2>
+					<h2 class="heading-section">All Flow Count</h2>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-
-
 					<div class="table-wrap">
-                        
 						<table class="table table-bordered table-dark table-hover" id="myTable2">
 						  <thead>
-						    <tr onclick="sortTable(0)">
-                                <th>DPID</th> 
-                                <th>Manifacturer</th>
-                                <th>Hardware Description</th>
-                                <th>Switch Description</th>
-                                <th>Switch Serial Number</th>
-                                <th>DP Description</th>
+						    <tr onclick="sortTable(0)"> 
+                                <th>DPID</th>
+                                <th>Packet Count</th>
+                                <th>Byte Count</th>
+                                <th>Flow Count</th>
+                            
+                               
 						    </tr>
 						  </thead>
 						  <tbody>
-                              <!-- {% for a in rules %} -->
-    <tr>
-        <td>{{ br }}</td>
-        <td>{{ rules.1.mfr_desc }}</td>
-        <td>{{ rules.1.hw_desc }}</td>
-        <td>{{ rules.1.sw_desc }}</td>
-        <td>{{ rules.1.serial_num }}</td>
-        <td>{{ rules.1.dp_desc }}</td>
-    </tr>
-    <tr>
-    <td>{{ br2 }}</td>
-    <td>{{ rules2.2.mfr_desc }}</td>
-    <td>{{ rules2.2.hw_desc }}</td>
-    <td>{{ rules2.2.sw_desc }}</td>
-    <td>{{ rules2.2.serial_num }}</td>
-    <td>{{ rules2.2.dp_desc }}</td>
-    </tr>
-    <tr>
-    <td>{{ br3 }}</td>
-    <td>{{ rules3.3.mfr_desc }}</td>
-    <td>{{ rules3.3.hw_desc }}</td>
-    <td>{{ rules3.3.sw_desc }}</td>
-    <td>{{ rules3.3.serial_num }}</td>
-    <td>{{ rules3.3.dp_desc }}</td>
-    </tr>
-    <tr>
-    <td>{{ br4 }}</td>
-    <td>{{ rules4.4.mfr_desc }}</td>
-    <td>{{ rules4.4.hw_desc }}</td>
-    <td>{{ rules4.4.sw_desc }}</td>
-    <td>{{ rules4.4.serial_num }}</td>
-    <td>{{ rules4.4.dp_desc }}</td>
-    </tr>
-     <tr>
-    <td>{{ br5 }}</td>
-    <td>{{ rules5.5.mfr_desc }}</td>
-    <td>{{ rules5.5.hw_desc }}</td>
-    <td>{{ rules5.5.sw_desc }}</td>
-    <td>{{ rules5.5.serial_num }}</td>
-    <td>{{ rules5.5.dp_desc }}</td>
-    </tr>
-    <tr>
-        <td>{{ br6 }}</td>
-        <td>{{ rules6.6.mfr_desc }}</td>
-        <td>{{ rules6.6.hw_desc }}</td>
-        <td>{{ rules6.6.sw_desc }}</td>
-        <td>{{ rules6.6.serial_num }}</td>
-        <td>{{ rules6.6.dp_desc }}</td>
-        </tr>
-    <!-- {% endfor %} -->
-                          
-                        </tbody>
+            
+                <tr>
+                  <td>{{ br }}</td>
+                  <td>{{ rules.1.packet_count }}</td>
+                  <td>{{ rules.1.byte_count }}</td>
+                  <td>{{ rules.1.flow_count }}</td>
+                </tr>
+             
+						  </tbody>
 						</table>
 					</div>
 				</div>

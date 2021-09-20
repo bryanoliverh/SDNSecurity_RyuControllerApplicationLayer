@@ -87,6 +87,51 @@ def flatten_flows1(rules):
     for a in rules['1']:
             rtn.append(a)
     return rtn
+def flatten_flows2(rules):
+    """
+    convert rules from api to a flat list
+    """
+    rtn = []
+    # for switch in rules:
+    for a in rules['2']:
+            rtn.append(a)
+    return rtn
+def flatten_flows3(rules):
+    """
+    convert rules from api to a flat list
+    """
+    rtn = []
+    # for switch in rules:
+    for a in rules['3']:
+            rtn.append(a)
+    return rtn
+def flatten_flows4(rules):
+    """
+    convert rules from api to a flat list
+    """
+    rtn = []
+    # for switch in rules:
+    for a in rules['4']:
+            rtn.append(a)
+    return rtn
+def flatten_flows5(rules):
+    """
+    convert rules from api to a flat list
+    """
+    rtn = []
+    # for switch in rules:
+    for a in rules['5']:
+            rtn.append(a)
+    return rtn
+def flatten_flows6(rules):
+    """
+    convert rules from api to a flat list
+    """
+    rtn = []
+    # for switch in rules:
+    for a in rules['6']:
+            rtn.append(a)
+    return rtn
 # def flatten_sw():
 #     """
 #     convert rules from api to a flat list

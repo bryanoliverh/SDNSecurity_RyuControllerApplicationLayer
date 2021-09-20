@@ -64,5 +64,12 @@ urlpatterns = [
 
     url(r'^statusdpid/$', views.statusdpid, name='statusdpid'),
 
-    url(r'^allflowstats/$', views.getflow, name='allflowstats'),
+    url(r'^allflowstats1/$', views.getflow, name='allflowstats1'),
+    url(r'^stats/flowentry/clear/$', views.flowentryclear, name='flowentryclear'),
+    
+    url(r'^allaggregate1/$', views.getaggregate1, name='allaggregate1'),
+    
+    url(r'^getportdesc1/$', views.getportdesc1, name='getportdesc1'),
+
+    url(r'^getportstats1/$', views.getportstats1, name='getportstats1'),
 ]   

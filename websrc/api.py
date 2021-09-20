@@ -123,6 +123,13 @@ def get_switch3():
 def get_switch4():
     # return _get('/stats/desc/1')
     return _get('/stats/desc/4')
+def get_switch5():
+    # return _get('/stats/desc/1')
+    return _get('/stats/desc/5')
+def get_switch6():
+    # return _get('/stats/desc/1')
+    return _get('/stats/desc/6')
+
 
 def addflow(sw='all', **kwargs):
     """
@@ -132,7 +139,49 @@ def addflow(sw='all', **kwargs):
     payload = kwargs
     return _post('/stats/flowentry/add'.format(sw), json=payload)
     
-def allflowstats():
+def allflowstats1():
+
 
     return _get('/stats/flow/1')
+
+def clearflowentry(sw='all'):
+    """
+    disable firewall
+    PUT /firewall/module/disable/{switch-id}
+    """
+    return _put('/stats/flowentry/clear/1'.format(sw))
+
+
+
+def getportdesc1():
+
+    return _get('/stats/portdesc/1')
+
+
+def getportstats1():
+
+    return _get('/stats/port/1')
+
+
+
+def allaggregatestats():
+
+    return _get('/stats/aggregateflow/1')
+
+def allaggregatestats2():
+
+    return _get('/stats/aggregateflow/2')
+
+def allaggregatestats3():
+
+    return _get('/stats/aggregateflow/3')
+def allaggregatestats4():
+
+    return _get('/stats/aggregateflow/4')
+def allaggregatestats5():
+
+    return _get('/stats/aggregateflow/5')
+def allaggregatestats6():
+
+    return _get('/stats/aggregateflow/6')
 
