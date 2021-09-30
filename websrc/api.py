@@ -140,10 +140,19 @@ def addflow(sw='all', **kwargs):
     return _post('/stats/flowentry/add'.format(sw), json=payload)
     
 def allflowstats1():
-
-
     return _get('/stats/flow/1')
+def allflowstats2():
+    return _get('/stats/flow/2')
+def allflowstats3():
+    return _get('/stats/flow/3')
+def allflowstats4():
+    return _get('/stats/flow/4')
 
+def allflowstats5():
+    return _get('/stats/flow/5')
+
+def allflowstats6():
+    return _get('/stats/flow/6')
 def clearflowentry(sw='all'):
     """
     disable firewall
@@ -156,6 +165,26 @@ def clearflowentry(sw='all'):
 def getportdesc1():
 
     return _get('/stats/portdesc/1')
+
+def getportdesc2():
+
+    return _get('/stats/portdesc/2')
+
+def getportdesc3():
+
+    return _get('/stats/portdesc/3')
+
+def getportdesc4():
+
+    return _get('/stats/portdesc/4')
+
+def getportdesc5():
+
+    return _get('/stats/portdesc/5')
+
+def getportdesc6():
+
+    return _get('/stats/portdesc/6')
 
 
 def getportstats1():

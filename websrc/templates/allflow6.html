@@ -4,7 +4,7 @@
 	<!-- <title>Data Center Network Manager</title> -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <!-- <meta http-equiv="refresh"  content="5; url = http://127.0.0.1:8000/allflowstats1" /> -->
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -55,6 +55,7 @@
     .show {display: block;}
     </style>
 	</head>
+
 	<body>
 		{% include "navbar.html" %}
 	<section class="ftco-section">
@@ -64,34 +65,45 @@
           <div class="dropdown">
             <button onclick="myFunction()" class="dropbtn">Switch list</button>
             <div id="myDropdown" class="dropdown-content">
-              <a href="http://127.0.0.1:8000/getportdesc1">Port Desc S1</a>
-              <a href="http://127.0.0.1:8000/getportdesc2">Port Desc S2</a>
-              <a href="http://127.0.0.1:8000/getportdesc3">Port Desc S3</a>
-              <a href="http://127.0.0.1:8000/getportdesc4">Port Desc S4</a>
-              <a href="http://127.0.0.1:8000/getportdesc5">Port Desc S5</a>
-              <a href="http://127.0.0.1:8000/getportdesc6">Port Desc S6</a>
+              <a href="http://127.0.0.1:8000/allflowstats1">s1</a>
+              <a href="http://127.0.0.1:8000/allflowstats2">s2</a>
+              <a href="http://127.0.0.1:8000/allflowstats3">s3</a>
+              <a href="http://127.0.0.1:8000/allflowstats4">s4</a>
+              <a href="http://127.0.0.1:8000/allflowstats5">s5</a>
+              <a href="http://127.0.0.1:8000/allflowstats6">s6</a>
             </div>
           </div>
-					<h2 class="heading-section">Port Desc in S1</h2>
+					<h2 class="heading-section">All Flows S6</h2>
+         
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
+          <!-- <form action="stats/flowentry/clear/" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Delete All Flow Entry" />
+        </form> -->
+        
+        
 					<div class="table-wrap">
 						<table class="table table-bordered table-dark table-hover" id="myTable2">
 						  <thead>
 						    <tr onclick="sortTable(0)"> 
-                                <th> Port Number</th>
-                                <th> Port Name</th>
-                                <th>Ethernet HW Address</th>
-                                <th>Current Features</th>
-                                <th>Advertised Features</th>
-                                <th>Supported Features</th>
-                                <th>Advertised Features by Peer</th>
-                                <th>Current Bitrate Speed</th>
-                                
-                                
-                             
+                                <th> Lenght</th>
+                                <th> Table Id</th>
+                                <th>Alive Time Flow (s)</th>
+                                <th>Alive Time Flow (ns)</th>
+                                <th>Priority</th>
+                                <th>Packets Count</th>
+                                <th>Byte Count</th>
+                                <th>In Port</th>
+                                <th>Ethernet Source Adress</th>
+                                <th>Ethernet Destination Address</th>
+                                <th>Port Output</th>
+                                <th>Idle Timeout </th>
+                                <th>Hard Timeout</th>
+                                <th>Flags</th>
+                                <th>Cookie</th>
                                
 						    </tr>
 						  </thead>
@@ -104,15 +116,22 @@
                     <button type="submit">Delete Rule</button>
                 </form>
             </td> -->
-            <td>{{ rule.port_no}}</td>
-            <td>{{ rule.name }}</td>
-            <td>{{ rule.hw_addr }}</td>
-            <td>{{ rule.curr }}</td>
-            <td>{{ rule.advertised }}</td>
-            <td>{{ rule.supported }}</td>
-            <td>{{ rule.peer }}</td>
-            <td>{{ rule.curr_speed}}</td>
-         
+
+            <td>{{ rule.length }}</td>
+            <td>{{ rule.table_id }}</td>
+            <td>{{ rule.duration_sec }}</td>
+            <td>{{ rule.duration_nsec }}</td>
+            <td>{{ rule.priority }}</td>
+            <td>{{ rule.packet_count }}</td>
+            <td>{{ rule.byte_count }}</td>
+            <td>{{ rule.match.in_port }}</td>
+            <td>{{ rule.match.dl_src }}</td>
+            <td>{{ rule.match.dl_dst }}</td>
+            <td>{{ rule.actions }}</td>
+            <td>{{ rule.idle_timeout }}</td>
+            <td>{{ rule.hard_timeout }}</td>
+            <td>{{ rule.flags }}</td>
+            <td>{{ rule.cookie }}</td>
            
 
 
@@ -231,26 +250,25 @@
       }
     }
     </script>
-      </script>
 
-      <script>
-      /* When the user clicks on the button, 
-      toggle between hiding and showing the dropdown content */
-      function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
       }
-      
-      // Close the dropdown if the user clicks outside of it
-      window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn')) {
-          var dropdowns = document.getElementsByClassName("dropdown-content");
-          var i;
-          for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-              openDropdown.classList.remove('show');
-            }
-          }
-        }
-      }
-      </script>
+    }
+  }
+}
+</script>

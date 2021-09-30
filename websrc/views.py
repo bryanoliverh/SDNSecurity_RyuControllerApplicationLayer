@@ -261,6 +261,29 @@ def getflow(request):
     #rules = utils.flatten_flows1(api.allflowstats())[increment:increment_to]
     return render(request, 'allflow1.html', {'rules': rules})
 
+
+def getflow2(request):
+    rules = utils.flatten_flows2(api.allflowstats2())
+    return render(request, 'allflow2.html', {'rules': rules})
+
+def getflow3(request):
+    rules = utils.flatten_flows3(api.allflowstats3())
+    return render(request, 'allflow3.html', {'rules': rules})
+
+
+def getflow4(request):
+    rules = utils.flatten_flows4(api.allflowstats4())
+    return render(request, 'allflow4.html', {'rules': rules})
+
+def getflow5(request):
+    rules = utils.flatten_flows5(api.allflowstats5())
+    return render(request, 'allflow5.html', {'rules': rules})
+
+def getflow6(request):
+    rules = utils.flatten_flows6(api.allflowstats6())
+    return render(request, 'allflow6.html', {'rules': rules})
+
+
 def getaggregate1(request):
     rules =  api.allaggregatestats()
     # rules2 = utils.flatten_flows2(api.allaggregatestats2())
@@ -293,6 +316,24 @@ def getportdesc1(request):
     rules = utils.flatten_flows1(api.getportdesc1())
     #rules = utils.flatten_flows1(api.allflowstats())[increment:increment_to]
     return render(request, 'getportdesc1.html', {'rules': rules})
+def getportdesc2(request):
+    rules = utils.flatten_flows2(api.getportdesc2())
+    return render(request, 'getportdesc2.html', {'rules': rules})
+def getportdesc3(request):
+    rules = utils.flatten_flows3(api.getportdesc2())
+    return render(request, 'getportdesc3.html', {'rules': rules})
+def getportdesc4(request):
+    rules = utils.flatten_flows4(api.getportdesc4())
+    return render(request, 'getportdesc4.html', {'rules': rules})
+
+def getportdesc5(request):
+    rules = utils.flatten_flows5(api.getportdesc5())
+    return render(request, 'getportdesc5.html', {'rules': rules})
+
+def getportdesc6(request):
+    rules = utils.flatten_flows6(api.getportdesc6())
+    return render(request, 'getportdesc6.html', {'rules': rules})
+
 
 def getportstats1(request):
     # rules = api.allflowstats()

@@ -17,6 +17,8 @@ from django.conf.urls import url
 from django.conf.urls import include
 from django.urls import path
 from django.contrib import admin
+from django.contrib.staticfiles.storage import staticfiles_storage
+from django.views.generic.base import RedirectView
 
 from . import views
 
@@ -29,6 +31,9 @@ urlpatterns = [
     path('dpid/', views.statusdpid),
     path('allflowstats/', views.getflow),
     path('aboutus', views.aboutus_view),
+    # path('allflow1', views.getflow),
+    # path('allflow2', views.getflow2),
+    # path('allflow3', views.getflow3),
     # index page
     url(r'^$', views.index, name='index'),
 
@@ -65,11 +70,27 @@ urlpatterns = [
     url(r'^statusdpid/$', views.statusdpid, name='statusdpid'),
 
     url(r'^allflowstats1/$', views.getflow, name='allflowstats1'),
+    url(r'^allflowstats2/$', views.getflow2, name='allflowstats2'),
+    url(r'^allflowstats3/$', views.getflow3, name='allflowstats3'),
+    url(r'^allflowstats4/$', views.getflow4, name='allflowstats4'),
+    url(r'^allflowstats5/$', views.getflow5, name='allflowstats5'),
+    url(r'^allflowstats6/$', views.getflow6, name='allflowstats6'),
     url(r'^stats/flowentry/clear/$', views.flowentryclear, name='flowentryclear'),
     
     url(r'^allaggregate1/$', views.getaggregate1, name='allaggregate1'),
     
     url(r'^getportdesc1/$', views.getportdesc1, name='getportdesc1'),
+    url(r'^getportdesc2/$', views.getportdesc2, name='getportdesc2'),
+    url(r'^getportdesc3/$', views.getportdesc3, name='getportdesc3'),
+    url(r'^getportdesc4/$', views.getportdesc4, name='getportdesc4'),
+    url(r'^getportdesc5/$', views.getportdesc5, name='getportdesc5'),
+    url(r'^getportdesc6/$', views.getportdesc6, name='getportdesc6'),
 
     url(r'^getportstats1/$', views.getportstats1, name='getportstats1'),
+
+     path(
+        "favicon.ico",
+        RedirectView.as_view(url=staticfiles_storage.url("favicon.ico")),
+    ),
+
 ]   
