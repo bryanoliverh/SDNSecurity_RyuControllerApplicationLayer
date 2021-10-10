@@ -20,6 +20,11 @@ in folder applayer ryu
 ryu-manager simple_switch_13.py rest_firewall.py
 hping3 -S --flood -V -p 80 170.155.9.185  --rand-source     
 
+source flowsetupsl.sh
+source stpsetup.sh
+
+ovs-ofctl -O OpenFlow13 dump-flows s1
+
 python -m venv env
 
 cd D:\UI\skripsi

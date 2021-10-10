@@ -11,7 +11,6 @@
 	{% load static %}
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
 	<!-- <link rel="stylesheet" href="../../websrc/templates/css/style.css" type="text/css"/> -->
-
   <style>
     .dropbtn {
       background-color: #353535;
@@ -64,18 +63,18 @@
           <div class="dropdown">
             <button onclick="myFunction()" class="dropbtn">Switch list</button>
             <div id="myDropdown" class="dropdown-content">
-              <a href="http://127.0.0.1:8000/getportdesc1">Port Desc S1</a>
-              <a href="http://127.0.0.1:8000/getportdesc2">Port Desc S2</a>
-              <a href="http://127.0.0.1:8000/getportdesc3">Port Desc S3</a>
-              <a href="http://127.0.0.1:8000/getportdesc4">Port Desc S4</a>
-              <a href="http://127.0.0.1:8000/getportdesc5">Port Desc S5</a>
-              <a href="http://127.0.0.1:8000/getportdesc6">Port Desc S6</a>
-              <a href="http://127.0.0.1:8000/getportdesc7">Port Desc S7</a>
-              <a href="http://127.0.0.1:8000/getportdesc8">Port Desc S8</a>
-              <a href="http://127.0.0.1:8000/getportdesc9">Port Desc S9</a>
+              <a href="http://127.0.0.1:8000/getportstats1">Port Stats S1</a>
+              <a href="http://127.0.0.1:8000/getportstats2">Port Stats S2</a>
+              <a href="http://127.0.0.1:8000/getportstats3">Port Stats S3</a>
+              <a href="http://127.0.0.1:8000/getportstats4">Port Stats S4</a>
+              <a href="http://127.0.0.1:8000/getportstats5">Port Stats S5</a>
+              <a href="http://127.0.0.1:8000/getportstats6">Port Stats S6</a>
+              <a href="http://127.0.0.1:8000/getportstats7">Port Stats S7</a>
+              <a href="http://127.0.0.1:8000/getportstats8">Port Stats S8</a>
+              <a href="http://127.0.0.1:8000/getportstats9">Port Stats S9</a>
             </div>
           </div>
-					<h2 class="heading-section">Port Desc in S6</h2>
+					<h2 class="heading-section">Port Statistics in S3</h2>
 				</div>
 			</div>
 			<div class="row">
@@ -85,13 +84,20 @@
 						  <thead>
 						    <tr onclick="sortTable(0)"> 
                                 <th> Port Number</th>
-                                <th> Port Name</th>
-                                <th>Ethernet HW Address</th>
-                                <th>Current Features</th>
-                                <th>Advertised Features</th>
-                                <th>Supported Features</th>
-                                <th>Advertised Features by Peer</th>
-                                <th>Current Bitrate Speed</th>
+                                <th> Received Packets</th>
+                                <th> Transmitted Packets</th>
+                                <th> Received Bytes</th>
+                                <th> Transmitted Bytes</th>
+                                <th> Dropped Packets in RX</th>
+                                <th> Dropped Packets in TX</th>
+                                <th> Receive Errors</th>
+                                <th> Transmit Errors</th>
+                                <th> Frame Alignment Errors</th>
+                                <th> Packets with RX Overrun</th>
+                                <th> CRC Errors</th>
+                                <th> Collisions</th>
+                                <th>Time Port has been Alived (seconds)</th>
+                                <th>Time Port has been Alived (nanoseconds)</th>
                                 
                                 
                              
@@ -108,13 +114,20 @@
                 </form>
             </td> -->
             <td>{{ rule.port_no}}</td>
-            <td>{{ rule.name }}</td>
-            <td>{{ rule.hw_addr }}</td>
-            <td>{{ rule.curr }}</td>
-            <td>{{ rule.advertised }}</td>
-            <td>{{ rule.supported }}</td>
-            <td>{{ rule.peer }}</td>
-            <td>{{ rule.curr_speed}}</td>
+            <td>{{ rule.rx_packets}}</td>
+            <td>{{ rule.tx_packets }}</td>
+            <td>{{ rule.rx_bytes }}</td>
+            <td>{{ rule.tx_bytes }}</td>
+            <td>{{ rule.rx_dropped }}</td>
+            <td>{{ rule.tx_dropped }}</td>
+            <td>{{ rule.rx_errors }}</td>
+            <td>{{ rule.tx_errors}}</td>
+            <td>{{ rule.rx_frame_err }}</td>
+            <td>{{ rule.rx_over_err }}</td>
+            <td>{{ rule.rx_crc_err}}</td>
+            <td>{{ rule.collisions }}</td>
+            <td>{{ rule.duration_sec }}</td>
+            <td>{{ rule.duration_nsec}}</td>
          
            
 
@@ -177,83 +190,82 @@
 </html>
 
 {% include "footer.html" %}
-
 <script>
-    function sortTable(n) {
-      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-      table = document.getElementById("myTable2");
-      switching = true;
-      // Set the sorting direction to ascending:
-      dir = "asc";
-      /* Make a loop that will continue until
-      no switching has been done: */
-      while (switching) {
-        // Start by saying: no switching is done:
-        switching = false;
-        rows = table.rows;
-        /* Loop through all table rows (except the
-        first, which contains table headers): */
-        for (i = 1; i < (rows.length - 1); i++) {
-          // Start by saying there should be no switching:
-          shouldSwitch = false;
-          /* Get the two elements you want to compare,
-          one from current row and one from the next: */
-          x = rows[i].getElementsByTagName("TD")[n];
-          y = rows[i + 1].getElementsByTagName("TD")[n];
-          /* Check if the two rows should switch place,
-          based on the direction, asc or desc: */
-          if (dir == "asc") {
-            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-              // If so, mark as a switch and break the loop:
-              shouldSwitch = true;
-              break;
-            }
-          } else if (dir == "desc") {
-            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-              // If so, mark as a switch and break the loop:
-              shouldSwitch = true;
-              break;
-            }
+  function sortTable(n) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("myTable2");
+    switching = true;
+    // Set the sorting direction to ascending:
+    dir = "asc";
+    /* Make a loop that will continue until
+    no switching has been done: */
+    while (switching) {
+      // Start by saying: no switching is done:
+      switching = false;
+      rows = table.rows;
+      /* Loop through all table rows (except the
+      first, which contains table headers): */
+      for (i = 1; i < (rows.length - 1); i++) {
+        // Start by saying there should be no switching:
+        shouldSwitch = false;
+        /* Get the two elements you want to compare,
+        one from current row and one from the next: */
+        x = rows[i].getElementsByTagName("TD")[n];
+        y = rows[i + 1].getElementsByTagName("TD")[n];
+        /* Check if the two rows should switch place,
+        based on the direction, asc or desc: */
+        if (dir == "asc") {
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            // If so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        } else if (dir == "desc") {
+          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            // If so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
           }
         }
-        if (shouldSwitch) {
-          /* If a switch has been marked, make the switch
-          and mark that a switch has been done: */
-          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      }
+      if (shouldSwitch) {
+        /* If a switch has been marked, make the switch
+        and mark that a switch has been done: */
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        // Each time a switch is done, increase this count by 1:
+        switchcount ++;
+      } else {
+        /* If no switching has been done AND the direction is "asc",
+        set the direction to "desc" and run the while loop again. */
+        if (switchcount == 0 && dir == "asc") {
+          dir = "desc";
           switching = true;
-          // Each time a switch is done, increase this count by 1:
-          switchcount ++;
-        } else {
-          /* If no switching has been done AND the direction is "asc",
-          set the direction to "desc" and run the while loop again. */
-          if (switchcount == 0 && dir == "asc") {
-            dir = "desc";
-            switching = true;
+        }
+      }
+    }
+  }
+  </script>
+    </script>
+
+    <script>
+    /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+    
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
           }
         }
       }
     }
     </script>
-      </script>
-
-      <script>
-      /* When the user clicks on the button, 
-      toggle between hiding and showing the dropdown content */
-      function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-      }
-      
-      // Close the dropdown if the user clicks outside of it
-      window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn')) {
-          var dropdowns = document.getElementsByClassName("dropdown-content");
-          var i;
-          for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-              openDropdown.classList.remove('show');
-            }
-          }
-        }
-      }
-      </script>

@@ -103,6 +103,31 @@ def delete_rule(sw='all', rule_id='all'):
     payload = { 'rule_id': rule_id }
     return _delete('/firewall/rules/{}'.format(sw), json=payload)
 
+
+
+def get_qosrules(sw='all'):
+    """
+    GET /firewall/rules/{switch-id}
+    GET /firewall/rules/{switch-id}/{vlan-id}
+    """
+    return _get('qos/queue/status/{}'.format(sw))
+
+def add_qosrule(sw='all', **kwargs):
+    """
+    POST /firewall/rules/{switch-id}
+    POST /firewall/rules/{switch-id}/{vlan-id}
+    """
+    payload = kwargs
+    return _post('qos/queue/status/{}'.format(sw), json=payload)
+
+def delete_qosrule(sw='all', rule_id='all'):
+    """
+    DELETE /firewall/rules/{switch-id}
+    DELETE /firewall/rules/{switch-id}/{vlan-id}
+    """
+    payload = { 'rule_id': rule_id }
+    return _delete('/firewall/rules/{}'.format(sw), json=payload)
+
 # #def get_switch():
 # def get_switch(sw='all'):
 #     # return _get('/stats/desc/1')
@@ -147,12 +172,16 @@ def allflowstats3():
     return _get('/stats/flow/3')
 def allflowstats4():
     return _get('/stats/flow/4')
-
 def allflowstats5():
     return _get('/stats/flow/5')
-
 def allflowstats6():
     return _get('/stats/flow/6')
+def allflowstats7():
+    return _get('/stats/flow/7')
+def allflowstats8():
+    return _get('/stats/flow/8')
+def allflowstats9():
+    return _get('/stats/flow/9')
 def clearflowentry(sw='all'):
     """
     disable firewall
@@ -186,14 +215,50 @@ def getportdesc6():
 
     return _get('/stats/portdesc/6')
 
+def getportdesc7():
+
+    return _get('/stats/portdesc/7')
+
+def getportdesc8():
+
+    return _get('/stats/portdesc/8')
+
+def getportdesc9():
+
+    return _get('/stats/portdesc/9')
+
 
 def getportstats1():
 
     return _get('/stats/port/1')
+def getportstats2():
+
+    return _get('/stats/port/2')
+def getportstats3():
+
+    return _get('/stats/port/3')
+def getportstats4():
+
+    return _get('/stats/port/4')
+def getportstats5():
+
+    return _get('/stats/port/5')
+def getportstats6():
+
+    return _get('/stats/port/6')
+def getportstats7():
+
+    return _get('/stats/port/7')
+def getportstats8():
+
+    return _get('/stats/port/8')
+def getportstats9():
+
+    return _get('/stats/port/9')
 
 
 
-def allaggregatestats():
+def allaggregatestats1():
 
     return _get('/stats/aggregateflow/1')
 

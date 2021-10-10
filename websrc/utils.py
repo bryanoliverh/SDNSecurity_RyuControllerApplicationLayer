@@ -120,6 +120,24 @@ def flatten_flows6(rules):
     for a in rules['6']:
             rtn.append(a)
     return rtn
+def flatten_flows7(rules):
+    rtn = []
+    # for switch in rules:
+    for a in rules['7']:
+            rtn.append(a)
+    return rtn
+def flatten_flows8(rules):
+    rtn = []
+    # for switch in rules:
+    for a in rules['8']:
+            rtn.append(a)
+    return rtn
+def flatten_flows9(rules):
+    rtn = []
+    # for switch in rules:
+    for a in rules['9']:
+            rtn.append(a)
+    return rtn
 # def flatten_sw():
 #     """
 #     convert rules from api to a flat list

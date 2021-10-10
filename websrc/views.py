@@ -59,6 +59,16 @@ def status_disable(request, sw='all'):
     return HttpResponseRedirect(reverse('status'))
 
 
+#QoS rules
+def qosrules(request, sw_id='all'):
+    """
+    show all rules in a table
+    provide form to add rule
+    """
+    rules = utils.flatten_rules(api.get_rules(sw=sw_id))
+    form = RuleForm()
+    return render(request, 'qosrule.html', {'rules': rules, 'form': form})
+
 # detailed rules
 
 def rules(request, sw_id='all'):
@@ -283,16 +293,28 @@ def getflow6(request):
     rules = utils.flatten_flows6(api.allflowstats6())
     return render(request, 'allflow6.html', {'rules': rules})
 
+def getflow7(request):
+    rules = utils.flatten_flows7(api.allflowstats7())
+    return render(request, 'allflow7.html', {'rules': rules})
+
+def getflow8(request):
+    rules = utils.flatten_flows8(api.allflowstats8())
+    return render(request, 'allflow8.html', {'rules': rules})
+
+def getflow9(request):
+    rules = utils.flatten_flows9(api.allflowstats9())
+    return render(request, 'allflow9.html', {'rules': rules})
+
 
 def getaggregate1(request):
-    rules =  api.allaggregatestats()
+    rules =  utils.flatten_flows1(api.allaggregatestats1())
     # rules2 = utils.flatten_flows2(api.allaggregatestats2())
     # rules3 = utils.flatten_flows3(api.allaggregatestats3())
     # rules4 = utils.flatten_flows4(api.allaggregatestats4())
     # rules5 = utils.flatten_flows5(api.allaggregatestats5())
     # rules6 = utils.flatten_flows6(api.allaggregatestats6())
     # statusdpid = api.get_fw_statusdpid()
-    # print(statusdpid) 
+    print(api.allaggregatestats1()) 
     br = "1"
     # br2 ="2"
     # br3 ="3"
@@ -334,6 +356,18 @@ def getportdesc6(request):
     rules = utils.flatten_flows6(api.getportdesc6())
     return render(request, 'getportdesc6.html', {'rules': rules})
 
+def getportdesc7(request):
+    rules = utils.flatten_flows7(api.getportdesc7())
+    return render(request, 'getportdesc7.html', {'rules': rules})
+
+def getportdesc8(request):
+    rules = utils.flatten_flows8(api.getportdesc8())
+    return render(request, 'getportdesc8.html', {'rules': rules})
+def getportdesc9(request):
+    rules = utils.flatten_flows9(api.getportdesc9())
+    return render(request, 'getportdesc9.html', {'rules': rules})
+
+
 
 def getportstats1(request):
     # rules = api.allflowstats()
@@ -344,6 +378,37 @@ def getportstats1(request):
     #rules = utils.flatten_flows1(api.allflowstats())[increment:increment_to]
     return render(request, 'getportstats1.html', {'rules': rules})
 
+def getportstats2(request):
+    rules = utils.flatten_flows2(api.getportstats2())
+    return render(request, 'getportstats2.html', {'rules': rules})
+
+def getportstats3(request):
+    rules = utils.flatten_flows3(api.getportstats3())
+    return render(request, 'getportstats3.html', {'rules': rules})
+
+def getportstats4(request):
+    rules = utils.flatten_flows4(api.getportstats4())
+    return render(request, 'getportstats4.html', {'rules': rules})
+
+def getportstats5(request):
+    rules = utils.flatten_flows5(api.getportstats5())
+    return render(request, 'getportstats5.html', {'rules': rules})
+
+def getportstats6(request):
+    rules = utils.flatten_flows6(api.getportstats6())
+    return render(request, 'getportstats6.html', {'rules': rules})
+
+def getportstats7(request):
+    rules = utils.flatten_flows7(api.getportstats7())
+    return render(request, 'getportstats7.html', {'rules': rules})
+
+def getportstats8(request):
+    rules = utils.flatten_flows8(api.getportstats8())
+    return render(request, 'getportstats8.html', {'rules': rules})
+
+def getportstats9(request):
+    rules = utils.flatten_flows9(api.getportstats9())
+    return render(request, 'getportstats9.html', {'rules': rules})
 
 # def get_more_tables(request):
 #     increment = int(request.GET['append_increment'])
@@ -353,3 +418,6 @@ def getportstats1(request):
 
 def aboutus_view(request):
     return render(request,'aboutus.html')
+
+def guitopo(request):
+    return render(request,'guitopo.html')

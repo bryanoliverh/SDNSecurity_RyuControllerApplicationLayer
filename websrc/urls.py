@@ -75,6 +75,9 @@ urlpatterns = [
     url(r'^allflowstats4/$', views.getflow4, name='allflowstats4'),
     url(r'^allflowstats5/$', views.getflow5, name='allflowstats5'),
     url(r'^allflowstats6/$', views.getflow6, name='allflowstats6'),
+    url(r'^allflowstats7/$', views.getflow7, name='allflowstats7'),
+    url(r'^allflowstats8/$', views.getflow8, name='allflowstats8'),
+    url(r'^allflowstats9/$', views.getflow9, name='allflowstats9'),
     url(r'^stats/flowentry/clear/$', views.flowentryclear, name='flowentryclear'),
     
     url(r'^allaggregate1/$', views.getaggregate1, name='allaggregate1'),
@@ -85,8 +88,25 @@ urlpatterns = [
     url(r'^getportdesc4/$', views.getportdesc4, name='getportdesc4'),
     url(r'^getportdesc5/$', views.getportdesc5, name='getportdesc5'),
     url(r'^getportdesc6/$', views.getportdesc6, name='getportdesc6'),
+    url(r'^getportdesc7/$', views.getportdesc7, name='getportdesc7'),
+    url(r'^getportdesc8/$', views.getportdesc8, name='getportdesc8'),
+    url(r'^getportdesc9/$', views.getportdesc9, name='getportdesc9'),
 
     url(r'^getportstats1/$', views.getportstats1, name='getportstats1'),
+    url(r'^getportstats2/$', views.getportstats2, name='getportstats2'),
+    url(r'^getportstats3/$', views.getportstats3, name='getportstats3'),
+    url(r'^getportstats4/$', views.getportstats4, name='getportstats4'),
+    url(r'^getportstats5/$', views.getportstats5, name='getportstats5'),
+    url(r'^getportstats6/$', views.getportstats6, name='getportstats6'),
+    url(r'^getportstats7/$', views.getportstats7, name='getportstats7'),
+    url(r'^getportstats8/$', views.getportstats8, name='getportstats8'),
+    url(r'^getportstats9/$', views.getportstats9, name='getportstats9'),
+
+    url(r'^guitopo/$', views.guitopo, name='guitopo'),
+    url(r'^qosrules/$', views.qosrules, name='qosrules'),
+    url(r'^qosrules/add/$', views.rules_add, name='qosrules_add'),
+    url(r'^qosrules/delete/(?P<rule_id>[0-9]+)/$', views.rules_delete, name='qosrules_delete'),
+    url(r'^qosrules/delete/$', views.rules_delete, name='qosrules_delete_all'),
 
      path(
         "favicon.ico",
