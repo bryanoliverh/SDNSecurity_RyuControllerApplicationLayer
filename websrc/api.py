@@ -278,4 +278,15 @@ def allaggregatestats5():
 def allaggregatestats6():
 
     return _get('/stats/aggregateflow/6')
+def allaggregatestats7():
 
+    return _get('/stats/aggregateflow/7')
+def allaggregatestats7():
+
+    return _get('/stats/aggregateflow/7')
+def allaggregatestats8():
+
+    return _get('/stats/aggregateflow/8')
+def allaggregatestats9():
+
+    return _get('/stats/aggregateflow/9')

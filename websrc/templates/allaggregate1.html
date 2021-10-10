@@ -40,11 +40,80 @@
                 {% for rule in rules %}
                 <tr>
                   <td>{{ br }}</td>
-                  <td>{{ rules.packet_count }}</td>
-                  <td>{{ rules.byte_count }}</td>
-                  <td>{{ rules.flow_count }}</td>
+                  <td>{{ rule.packet_count }}</td>
+                  <td>{{ rule.byte_count }}</td>
+                  <td>{{ rule.flow_count }}</td>
                 </tr>
                    {% endfor %}
+                   {% for rule in rules2 %}
+                   <tr>
+                     <td>{{ br2 }}</td>
+                     <td>{{ rule.packet_count }}</td>
+                     <td>{{ rule.byte_count }}</td>
+                     <td>{{ rule.flow_count }}</td>
+                   </tr>
+
+                      {% endfor %}
+                      {% for rule in rules3 %}
+                      <tr>
+                        <td>{{ br3 }}</td>
+                        <td>{{ rule.packet_count }}</td>
+                        <td>{{ rule.byte_count }}</td>
+                        <td>{{ rule.flow_count }}</td>
+                      </tr>
+
+                           {% endfor %}
+                   {% for rule in rules4 %}
+                   <tr>
+                     <td>{{ br4 }}</td>
+                     <td>{{ rule.packet_count }}</td>
+                     <td>{{ rule.byte_count }}</td>
+                     <td>{{ rule.flow_count }}</td>
+                   </tr>
+                      {% endfor %}
+                   
+                   {% for rule in rules5 %}
+                   <tr>
+                     <td>{{ br5 }}</td>
+                     <td>{{ rule.packet_count }}</td>
+                     <td>{{ rule.byte_count }}</td>
+                     <td>{{ rule.flow_count }}</td>
+                   </tr>
+                      {% endfor %}
+                   
+                   {% for rule in rules6 %}
+                   <tr>
+                     <td>{{ br6 }}</td>
+                     <td>{{ rule.packet_count }}</td>
+                     <td>{{ rule.byte_count }}</td>
+                     <td>{{ rule.flow_count }}</td>
+                   </tr>
+                      {% endfor %}
+
+                   {% for rule in rules7 %}
+                   <tr>
+                     <td>{{ br7 }}</td>
+                     <td>{{ rule.packet_count }}</td>
+                     <td>{{ rule.byte_count }}</td>
+                     <td>{{ rule.flow_count }}</td>
+                   </tr>
+                      {% endfor %}
+                      {% for rule in rules8 %}
+                      <tr>
+                        <td>{{ br8 }}</td>
+                        <td>{{ rule.packet_count }}</td>
+                        <td>{{ rule.byte_count }}</td>
+                        <td>{{ rule.flow_count }}</td>
+                      </tr>
+                         {% endfor %}
+                         {% for rule in rules9 %}
+                         <tr>
+                           <td>{{ br9 }}</td>
+                           <td>{{ rule.packet_count }}</td>
+                           <td>{{ rule.byte_count }}</td>
+                           <td>{{ rule.flow_count }}</td>
+                         </tr>
+                            {% endfor %}
 						  </tbody>
 						</table>
 					</div>

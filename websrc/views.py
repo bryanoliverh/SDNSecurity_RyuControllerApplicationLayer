@@ -303,27 +303,34 @@ def getflow8(request):
 
 def getflow9(request):
     rules = utils.flatten_flows9(api.allflowstats9())
+    print(api.allflowstats9())
     return render(request, 'allflow9.html', {'rules': rules})
 
 
 def getaggregate1(request):
     rules =  utils.flatten_flows1(api.allaggregatestats1())
-    # rules2 = utils.flatten_flows2(api.allaggregatestats2())
-    # rules3 = utils.flatten_flows3(api.allaggregatestats3())
-    # rules4 = utils.flatten_flows4(api.allaggregatestats4())
-    # rules5 = utils.flatten_flows5(api.allaggregatestats5())
-    # rules6 = utils.flatten_flows6(api.allaggregatestats6())
+    rules2 = utils.flatten_flows2(api.allaggregatestats2())
+    rules3 = utils.flatten_flows3(api.allaggregatestats3())
+    rules4 = utils.flatten_flows4(api.allaggregatestats4())
+    rules5 = utils.flatten_flows5(api.allaggregatestats5())
+    rules6 = utils.flatten_flows6(api.allaggregatestats6())
+    rules7 = utils.flatten_flows7(api.allaggregatestats7())
+    rules8 = utils.flatten_flows8(api.allaggregatestats8())
+    rules9 = utils.flatten_flows9(api.allaggregatestats9())
     # statusdpid = api.get_fw_statusdpid()
     print(api.allaggregatestats1()) 
     br = "1"
-    # br2 ="2"
-    # br3 ="3"
-    # br4 ="4"
-    # br5 ="5"
-    # br6 ="6"
+    br2 ="2"
+    br3 ="3"
+    br4 ="4"
+    br5 ="5"
+    br6 ="6"
+    br7 ="7"
+    br8 ="8"
+    br9 ="9"
     print(rules) 
     # rules = utils.flatten_sw(api.get_switch())
-    return render(request, 'allaggregate1.html', {'rules': rules, 'br' : br})
+    return render(request, 'allaggregate1.html', {'rules': rules, 'br' : br, 'rules2' :rules2, 'br2':br2, 'rules3' :rules3, 'br3':br3, 'rules4' :rules4, 'br4':br4, 'rules5' :rules5, 'br5':br5, 'rules6' :rules6, 'br6':br6, 'rules7' :rules7, 'br7':br7, 'rules8' :rules8, 'br8':br8, 'rules9' :rules9, 'br9':br9})
 
 
 def getportdesc1(request):
