@@ -58,10 +58,18 @@
 
 	<body>
 		{% include "navbar.html" %}
+   
 	<section class="ftco-section">
 		<div class="container">
-			<div class="row justify-content-center">
+<!--       
+        <canvas id="myCanvas"></canvas> -->
+        <!-- <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+        <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
+    
+        <div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
+          
           <div class="dropdown">
             <button onclick="myFunction()" class="dropbtn">Switch list</button>
             <div id="myDropdown" class="dropdown-content">
@@ -76,6 +84,8 @@
               <a href="http://127.0.0.1:8000/allflowstats9">s9</a>
             </div>
           </div>
+
+          
 					<h2 class="heading-section">All Flows S1</h2>
          
 				</div>
@@ -182,6 +192,7 @@
 						</table>
 					</div>
 				</div>
+        
 			</div>
 		</div>
 	</section>
@@ -196,7 +207,55 @@
 </html>
 
 {% include "footer.html" %}
-
+<script>
+  window.onload = function() {
+  
+  var dataPoints = [];
+  
+  var chart = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+    theme: "light2",
+    title: {
+      text: "Daily Sales Data"
+    },
+    axisY: {
+      title: "Units",
+      titleFontSize: 24,
+      includeZero: true
+    },
+    data: [{
+      type: "column",
+      yValueFormatString: "#,### Units",
+      dataPoints: dataPoints
+    }]
+  });
+  
+  function addData(rules) {
+    for (var i = 0; i < rules.length; i++) {
+      dataPoints.push({
+        x: rules[i].packet_count,
+        y: rules[i].priority
+      });
+    }
+    chart.render();
+  
+  }
+  
+  $.getJSON("https://canvasjs.com/data/gallery/javascript/daily-sales-data.json", addData);
+  
+  }
+  </script>
+<script>
+  var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+ctx.fillStyle = "#FF0000";
+ctx.fillRect(10,0,20,75); // fillRect(x,y,width,height)
+  var colors = ['red','green','blue','purple']
+for (let i=0; i<marks.length; i++) {
+  ctx.fillStyle = colors[i]
+  ctx.fillRect(rules[i].priority,rules[i].packet_count,20,75);
+}
+  </script>
 <script>
     function sortTable(n) {
       var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;

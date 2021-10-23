@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<!-- <title>Data Center Network Manager</title> -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	{% load static %}
+    
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style2.css' %}"/>
+	<!-- <link rel="stylesheet" href="../../websrc/templates/css/style.css" type="text/css"/> -->
+<style type="text/css">
+   body { background: rgb(255, 255, 255) !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+</style>
+   <style media="screen">
+        
+        table.TableColor {
+    border: 2px solid #2800bb;
+    background-color: #97e1ff;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    }
+    table.TableColor td, table.TableColor th {
+    border: 1px solid #000000;
+    padding: 3px 2px;
+    }
+    table.TableColor tbody td {
+    font-size: 13px;
+    }
+    table.TableColor tr:nth-child(even) {
+    background: #a6bbff;
+    }
+    table.TableColor thead {
+    background: #2800bb;
+    }
+    table.TableColor thead th {
+    font-size: 19px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    border-left: 2px solid #2800bb;
+    }
+    table.TableColor thead th:first-child {
+    border-left: none;
+    }
+    
+    table.TableColor tfoot {
+    font-size: 13px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background: #f5f5f5;
+    }
+    table.TableColor tfoot td {
+    font-size: 13px;
+    }
+    table.TableColor tfoot .links {
+    text-align: right;
+    }
+    
+    table.TableColor tfoot {
+    font-size: 13px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background: #2800bb;
+    }
+    </style>
+      </head>
+    
+    .dropdown a:hover {background-color: #ddd;}
+    
+    .show {display: block;}
+    </style>
+	</head>
+	<body>
+		{% include "navbar.html" %}
+	<section class="ftco-section">
+        <h2 class="heading-section">Graph Flows of S7</h2>
+		<div class="container">
+            <div id="app" class="min-vh-100 m-3 w-75 m-0">
+                <div class="d-flex align-items-center mb-3">
+                   
+                    <label for="type_data">
+                        <h5>Tipe Grafik:</h5>
+                    </label>
+                    <select class="form-select mx-5" style="width: 300px;" id="type_data" aria-label="Select Data Graph">
+                        <option value="Byte" selected="">Byte</option>
+                        <option value="Packet">Packet</option>
+                    </select>
+                </div>
+                <div id="Graph" style="width: 700px;">
+                </div>
+            </div>
+        
+	</section>
+	<!-- href="{% static 'css/style.css' %}" -->
+	{% load static %}
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/popper.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script> 
+  <script src="../static/js/jquery-3.6.0.min.js"></script>
+  <script src="../static/js/bootstrap.min.js"></script>
+  <script src="../static/js/chart.min.js"></script>
+  <script src="../static/js/responseallflowss7.js"></script>
+  <script src="../static/js/script.js"></script>
+	</body>
+</html>
+
+{% include "footer.html" %}

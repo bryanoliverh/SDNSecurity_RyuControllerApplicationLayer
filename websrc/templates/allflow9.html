@@ -59,6 +59,9 @@
 	<body>
 		{% include "navbar.html" %}
 	<section class="ftco-section">
+    <!-- <div class="chart" style="position: relative; height:80vh; width:100vw">
+      <canvas id="myChart"></canvas>
+    </div> -->
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
@@ -135,46 +138,6 @@
             <td>{{ rule.hard_timeout }}</td>
             <td>{{ rule.flags }}</td>
             <td>{{ rule.cookie }}</td>
-           
-
-
-            <!-- <td>{{ rules.1.lenght }}</td>
-            <td>{{ rules.1.table_id }}</td>
-            <td>{{ rules.1.duration_sec }}</td>
-            <td>{{ rules.1.duration_nsec }}</td>
-            <td>{{ rules.1.priority }}</td>
-            <td>{{ rules.1.idle_timeout }}</td>
-            <td>{{ rules.1.hard_timeout }}</td>
-            <td>{{ rules.1.flags }}</td>
-            <td>{{ rules.1.cookie }}</td>
-            <td>{{ rules.1.packet_count }}</td>
-            <td>{{ rules.1.byte_count }}</td>
-            <td>{{ rules.1.match.in_port }}</td>
-            <td>{{ rules.1.actions.OUTPUT }}</td> -->
-            <!-- <td>{{ rule.dpid }}</td>
-            <td>{{ rule.cookie }}</td>
-            <td>{{ rule.cookie_mask }}</td>
-            <td>{{ rule.table_id }}</td>
-            <td>{{ rule.idle_timeout }}</td>
-            <td>{{ rule.hard_timeout }}</td>
-            <td>{{ rule.priority }}</td>
-            <td>{{ rule.flags }}</td>
-            <td>{{ rule.match }}</td> -->
-           
-<!--             
-                <td>{{ switch.switch_id|default_if_none:"-" }}</td>
-                <td>{{ rule.rule_id|default_if_none:"-" }}</td>
-                <td>{{ rule.priority|default_if_none:"-" }}</td>
-                <td>{{ rule.dl_type|default_if_none:"-" }}</td>
-                <td>{{ rule.nw_src|default_if_none:"-" }}</td>
-                <td>{{ rule.nw_dst|default_if_none:"-" }}</td>
-                <td>{{ rule.ipv6_src|default_if_none:"-" }}</td>
-                <td>{{ rule.ipv6_dst|default_if_none:"-" }}</td>
-                <td>{{ rule.nw_proto|default_if_none:"-" }}</td>
-                <td>{{ rule.tp_src|default_if_none:"-" }}</td>
-                <td>{{ rule.tp_dst|default_if_none:"-" }}</td>
-                <td>{{ rule.actions|default_if_none:"-" }}</td>
-            -->
         </tr>
         {% endfor %}
 						    </tr>
@@ -196,6 +159,77 @@
 </html>
 
 {% include "footer.html" %}
+<script>
+function BuildChart(labels, values, chartTitle) {
+  var data = {
+    labels: labels,
+    datasets: [{
+      label: chartTitle, // Name the series
+      data: values,
+      backgroundColor: ['rgb(54, 162, 235)',
+        'rgb(54, 162, 235)',
+        'rgb(54, 162, 235)',
+        'rgb(54, 162, 235)',
+        'rgb(54, 162, 235)',
+        'rgb(54, 162, 235)',
+        'rgb(54, 162, 235)',
+        'rgb(54, 162, 235)',
+        'rgb(54, 162, 235)',
+        'rgb(54, 162, 235)',
+      ],
+    }],
+  };
+  var ctx = document.getElementById("myChart").getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'horizontalBar',
+    data: data,
+    options: {
+      responsive: true, // Instruct chart JS to respond nicely.
+      maintainAspectRatio: false, // Add to prevent default behavior of full-width/height 
+      scales: {
+        xAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: '$ Billion'
+          }
+        }],
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Name'
+          }
+        }]
+      },
+    }
+  });
+  return myChart;
+}
+</script>
+
+<script>
+  var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+  if (this.readyState == 4 && this.status == 200) {
+    var json = JSON.parse(this.response);
+    // Map JSON labels  back to values array
+    var labels = json.map(function (e) {
+      // a = e.packet_count;
+      
+      a = "e.9.packet_count";
+      return (e.priority );
+    });
+    // Map JSON values back to values array
+    var values = json.map(function (e) {
+      return (e.priority ); 
+    });
+    BuildChart(labels, values, "Real Time Net Worth"); // Pass in data and call the chart
+  }
+};
+xhttp.open("GET", "http://192.168.1.105:8080/stats/flow/9", false);
+
+xhttp.send();
+</script>
+
 
 <script>
     function sortTable(n) {

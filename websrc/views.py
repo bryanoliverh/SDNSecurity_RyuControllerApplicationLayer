@@ -306,6 +306,43 @@ def getflow9(request):
     print(api.allflowstats9())
     return render(request, 'allflow9.html', {'rules': rules})
 
+def testgraph(request):
+    rules = utils.flatten_flows9(api.allflowstats9())
+    print(api.allflowstats9())
+    return render(request, 'flowgraph1.html', {'rules': rules})
+
+def testgraph2(request):
+    rules = utils.flatten_flows9(api.allflowstats9())
+    print(api.allflowstats9())
+    return render(request, 'flowgraph2.html', {'rules': rules})
+def testgraph3(request):
+    rules = utils.flatten_flows9(api.allflowstats9())
+    print(api.allflowstats9())
+    return render(request, 'flowgraph3.html', {'rules': rules})
+def testgraph4(request):
+    rules = utils.flatten_flows9(api.allflowstats9())
+    print(api.allflowstats9())
+    return render(request, 'flowgraph4.html', {'rules': rules})
+def testgraph5(request):
+    rules = utils.flatten_flows9(api.allflowstats9())
+    print(api.allflowstats9())
+    return render(request, 'flowgraph5.html', {'rules': rules})
+def testgraph6(request):
+    rules = utils.flatten_flows9(api.allflowstats9())
+    print(api.allflowstats9())
+    return render(request, 'flowgraph6.html', {'rules': rules})
+def testgraph7(request):
+    rules = utils.flatten_flows9(api.allflowstats9())
+    print(api.allflowstats9())
+    return render(request, 'flowgraph7.html', {'rules': rules})
+def testgraph8(request):
+    rules = utils.flatten_flows9(api.allflowstats9())
+    print(api.allflowstats9())
+    return render(request, 'flowgraph8.html', {'rules': rules})
+def testgraph9(request):
+    rules = utils.flatten_flows9(api.allflowstats9())
+    print(api.allflowstats9())
+    return render(request, 'flowgraph9.html', {'rules': rules})
 
 def getaggregate1(request):
     rules =  utils.flatten_flows1(api.allaggregatestats1())

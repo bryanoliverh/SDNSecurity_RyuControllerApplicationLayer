@@ -58,6 +58,12 @@
 
 	<body>
 		{% include "navbar.html" %}
+    <div class="panel-body">
+      <div id="morris-area-chart"></div>
+      </div>
+          <div class="panel-body" style="position: relative; height:80vh; width:100vw">
+      <canvas id="morris-area-chart"></canvas>
+    </div>
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
@@ -196,7 +202,28 @@
 </html>
 
 {% include "footer.html" %}
+<script>
+  function Onsuccess(response) {
+var str1 = JSON.parse(response.d);
+Morris.Area({
+element: 'morris-area-chart',
+data:str1,
 
+xkey: ['rules.2.packet_count'],
+ykeys: ['rules.2.priority'],
+labels: ['value'],
+pointSize: 3,
+fillOpacity: 0,
+pointStrokeColors: ['#55ce63', '#009efb', '#2f3d4a'],
+behaveLikeLine: true,
+gridLineColor: '#e0e0e0',
+lineWidth: 3,
+hideHover: 'auto',
+lineColors: ['#55ce63', '#009efb', '#2f3d4a'],
+resize: true
+});
+}
+</script>
 <script>
     function sortTable(n) {
       var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
