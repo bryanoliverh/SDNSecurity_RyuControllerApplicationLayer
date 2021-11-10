@@ -1,5 +1,5 @@
 const data = {
-    "6": [
+    "1": [
         {
             "priority": 1,
             "cookie": 0,

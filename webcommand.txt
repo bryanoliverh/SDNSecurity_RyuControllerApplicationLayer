@@ -38,7 +38,15 @@ python .\manage.py makemigrations
 python .\manage.py migrate
 python .\manage.py runserver
 
-scp -r bryanfinal/. mininet@192.168.1.116:/home/mininet/bryanfinal
+cd D:\UI\skripsi\bryanfinal\bryanfinal
+D:
+scp -r mininet@192.168.1.116:/home/mininet/bryanfinal/threetier9newhost_5s.csv dataresearch/ 
+scp -r mininet@192.168.1.116:/home/mininet/bryanfinal/spineleaf9newhost_5s.csv dataresearch/ 
+
+scp -r ryu@192.168.1.111:/home/ryu/bryanfinal/analysis/mitigation_graph1.png analysis/
+
+
+scp -r ryu@192.168.1.111:/home/ryu/bryanfinal/resDatathreetier.csv analysis/
 
 unsupported version:
 sudo ovs-vsctl set bridge s1 protocols=OpenFlow13

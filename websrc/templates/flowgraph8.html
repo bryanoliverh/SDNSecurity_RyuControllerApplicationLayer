@@ -9,7 +9,10 @@
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	{% load static %}
-    
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style2.css' %}"/>
 	<!-- <link rel="stylesheet" href="../../websrc/templates/css/style.css" type="text/css"/> -->
 <style type="text/css">
@@ -78,7 +81,7 @@
 	<body>
 		{% include "navbar.html" %}
 	<section class="ftco-section">
-        <h2 class="heading-section">Graph Flows of S8</h2>
+        <h2 class="heading-section">Graph Flows of S6</h2>
 		<div class="container">
             <div id="app" class="min-vh-100 m-3 w-75 m-0">
                 <div class="d-flex align-items-center mb-3">
@@ -90,6 +93,22 @@
                         <option value="Byte" selected="">Byte</option>
                         <option value="Packet">Packet</option>
                     </select>
+                </div>
+                <div class="dropdown">
+                    <a id="my-dropdown" href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Switch</a>
+                
+                    <ul class="dropdown-menu">
+                    <li><a href="http://127.0.0.1:8000/flowgraph1">Switch 1</a></li>
+                    <li><a href="http://127.0.0.1:8000/flowgraph2">Switch 2</a></li>
+                    <li><a href="http://127.0.0.1:8000/flowgraph3">Switch 3</a></li>
+                    <li><a href="http://127.0.0.1:8000/flowgraph4">Switch 4</a></li>
+                    <li><a href="http://127.0.0.1:8000/flowgraph5">Switch 5</a></li>
+                    <li><a href="http://127.0.0.1:8000/flowgraph6">Switch 6</a></li>
+                    <li><a href="http://127.0.0.1:8000/flowgraph7">Switch 7</a></li>
+                    <li><a href="http://127.0.0.1:8000/flowgraph8">Switch 8</a></li>
+                    <li><a href="http://127.0.0.1:8000/flowgraph9">Switch 9</a></li>
+                    </ul>
+                
                 </div>
                 <div id="Graph" style="width: 700px;">
                 </div>

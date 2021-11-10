@@ -207,6 +207,9 @@ def get_switch(request):
     rules4 = api.get_switch4()
     rules5 = api.get_switch5()
     rules6 = api.get_switch6()
+    rules7 = api.get_switch7()
+    rules8 = api.get_switch8()
+    rules9 = api.get_switch9()
     statusdpid = api.get_fw_statusdpid()
     print(statusdpid) 
     br = "1"
@@ -215,9 +218,12 @@ def get_switch(request):
     br4 ="4"
     br5 ="5"
     br6 ="6"
+    br7 ="7"
+    br8 ="8"
+    br9 ="9"
     print(rules) 
     # rules = utils.flatten_sw(api.get_switch())
-    return render(request, 'getswitch.html', {'rules': rules, 'statusdpid' :statusdpid, 'br':br, 'rules2' :rules2, 'br2':br2, 'rules3' :rules3, 'br3':br3, 'rules4' :rules4, 'br4':br4, 'rules5' :rules5, 'br5':br5, 'rules6' :rules6, 'br6':br6})
+    return render(request, 'getswitch.html', {'rules': rules, 'statusdpid' :statusdpid, 'br':br, 'rules2' :rules2, 'br2':br2, 'rules3' :rules3, 'br3':br3, 'rules4' :rules4, 'br4':br4, 'rules5' :rules5, 'br5':br5, 'rules6' :rules6, 'br6':br6, 'rules7' :rules7, 'br7':br7,'rules8' :rules8, 'br8':br8, 'rules9' :rules9, 'br9':br9})
 
 # def get_switch(request, dpid='all'):
 #     #rules = api.get_switch()

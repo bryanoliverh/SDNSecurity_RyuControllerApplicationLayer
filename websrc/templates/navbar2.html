@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<style type="text/css">
+    .bs-example{
+        margin: 0px;
+
+    }
+.navbar-brand{
+  font-size: 20px;
+  font-family: sans-serif;
+
+}
+
+
+</style>
+</head>
+<body>
+
+
+
+<div class="bs-example">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+        <a href="/" class="navbar-brand">FDCSC Network Manager</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-dark dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Switches
+                    </button>
+                    <div class="dropdown-menu">
+                    <a href="/dpid" class="dropdown-item">Switch DPID List</a>
+                    <a href="/status" class="dropdown-item">Switch Status</a>
+                    <a href="/getswitch" class="dropdown-item">See All Switch</a>
+                    </div>
+                  </div>
+
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-secondary dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Switch Ports
+                    </button>
+                    <div class="dropdown-menu">
+                    <a href="/getportdesc1" class="dropdown-item">Port Description</a>
+                    <a href="/getportstats1" class="dropdown-item">Port Statistics</a>
+                    </div>
+                  </div>
+                <!-- <a href="/" class="nav-item nav-link active">Home</a> -->
+               <hr>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Firewall Rule Management
+                    </button>
+                   <div class="dropdown-menu">
+                        <a href="/iprules" class="dropdown-item">Firewall Rules</a>
+                        <a href="/detailedrules" class="dropdown-item">Detailed Firewall Rules</a>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Flows
+                    </button>
+                    <div class="dropdown-menu">
+                 <a href="/allflowstats1" class="dropdown-item">See Switch Flows</a>
+                 <a href="/allaggregate1" class="dropdown-item">See Aggregate Flows</a>
+                 <a href="/flowgraph1" class="dropdown-item">See Flow Graphs</a>
+                <!-- <a href="/addflow" class="nav-item nav-link">Add Flow</a> -->
+                  </div>
+                  </div>
+            </div>
+
+            <div class="navbar-nav">
+                <a href="/aboutus" class="nav-item nav-link">About Us</a>
+                <!-- <a href="contactus" class="nav-item nav-link">Contact Us</a> -->
+            </div>
+
+
+
+
+        </div>
+    </nav>
+</div>
+
+
+</body>
+</html>

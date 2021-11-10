@@ -154,6 +154,16 @@ def get_switch5():
 def get_switch6():
     # return _get('/stats/desc/1')
     return _get('/stats/desc/6')
+def get_switch7():
+    # return _get('/stats/desc/1')
+    return _get('/stats/desc/7')
+def get_switch8():
+    # return _get('/stats/desc/1')
+    return _get('/stats/desc/8')
+def get_switch9():
+    # return _get('/stats/desc/1')
+    return _get('/stats/desc/9')
+
 
 
 def addflow(sw='all', **kwargs):
