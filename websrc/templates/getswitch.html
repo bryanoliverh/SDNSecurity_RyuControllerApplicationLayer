@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 	<!-- <title>Data Center Network Manager</title> -->
-    <meta charset="utf-8">
+    <!-- <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
@@ -10,8 +10,17 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	{% load static %}
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
-	<!-- <link rel="stylesheet" href="../../websrc/templates/css/style.css" type="text/css"/> -->
-
+	<link rel="stylesheet" href="../../websrc/templates/css/style.css" type="text/css"/> -->
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
 	</head>
 	<body>
 		{% include "navbar.html" %}
@@ -32,7 +41,7 @@
 						  <thead>
 						    <tr onclick="sortTable(0)">
                                 <th>DPID</th> 
-                                <th>Manifacturer</th>
+                                <th>Manufacturer</th>
                                 <th>Hardware Description</th>
                                 <th>Switch Description</th>
                                 <th>Switch Serial Number</th>
@@ -87,7 +96,7 @@
         <td>{{ rules6.6.hw_desc }}</td>
         <td>{{ rules6.6.sw_desc }}</td>
         <td>{{ rules6.6.serial_num }}</td>
-        <td>{{ rules6.7.dp_desc }}</td>
+        <td>{{ rules6.6.dp_desc }}</td>
         </tr>
         <tr>
           <td>{{ br7 }}</td>

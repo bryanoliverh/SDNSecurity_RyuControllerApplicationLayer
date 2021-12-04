@@ -1,4 +1,13 @@
+cd D:\UI\skripsi
+D:
 
+env\Scripts\activate
+cd bryanwebsite
+python .\manage.py runserver
+
+python .\manage.py makemigrations
+python .\manage.py migrate
+python .\manage.py runserver
 
 ssh -X mininet@192.168.1.112
 ssh -X ryu@192.168.1.103
@@ -9,7 +18,7 @@ ssh -X ryu@192.168.1.103
 sudo mn --controller=remote,ip=192.168.1.108 --topo=linear,4 --switch ovsk,protocols=OpenFlow13
 
 cd bryanfinal
-sudo nano testdatacenter124.py
+sudo python threetier9.py
 
 cd app
 ryu-manager simple_switch_13.py  rest_firewall.py ofctl_rest.py      
@@ -27,27 +36,15 @@ ovs-ofctl -O OpenFlow13 dump-flows s1
 
 python -m venv env
 
-cd D:\UI\skripsi
-D:
 
-env\Scripts\activate
-cd bryanwebsite
-python .\manage.py runserver
-
-python .\manage.py makemigrations
-python .\manage.py migrate
-python .\manage.py runserver
-
-cd D:\UI\skripsi\bryanfinal\bryanfinal
-D:
-scp -r mininet@192.168.1.116:/home/mininet/bryanfinal/threetier9newhost_5s.csv dataresearch/ 
-scp -r mininet@192.168.1.116:/home/mininet/bryanfinal/spineleaf9newhost_5s.csv dataresearch/ 
-
-scp -r ryu@192.168.1.111:/home/ryu/bryanfinal/analysis/mitigation_graph1.png analysis/
+Address already in use:
+ps -fA | grep python
+kill
 
 
-scp -r ryu@192.168.1.111:/home/ryu/bryanfinal/resDatathreetier.csv analysis/
+scp -r mininet@192.168.1.116:/home/mininet/bryanfinal/threetier9h1h12_5000packets.csv dataresearch/
 
+scp -r mininet@192.168.1.116:/home/mininet/bryanfinal/threetest.csv dataresearch/
 unsupported version:
 sudo ovs-vsctl set bridge s1 protocols=OpenFlow13
 sudo ovs-vsctl set bridge s2 protocols=OpenFlow13

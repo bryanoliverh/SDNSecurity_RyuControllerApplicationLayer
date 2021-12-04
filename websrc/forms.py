@@ -46,10 +46,10 @@ class RuleForm(forms.Form):
     ipv6_src = forms.CharField(required=False)
     ipv6_dst = forms.CharField(required=False)
     nw_proto = forms.ChoiceField(required=False, choices=NW_PROTO_CHOICES)
-    tp_src = forms.IntegerField(
-        label="TP SRC", required=False, min_value=0, max_value=65535)
-    tp_dst = forms.IntegerField(
-        label="TP DST", required=False, min_value=0, max_value=65535)
+    # tp_src = forms.IntegerField(
+    #     label="TP SRC", required=False, min_value=0, max_value=65535)
+    # tp_dst = forms.IntegerField(
+    #     label="TP DST", required=False, min_value=0, max_value=65535)
     actions = forms.ChoiceField(choices=ACTION_CHOICES)
 
 
